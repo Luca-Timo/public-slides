@@ -51,6 +51,12 @@ printf '  %s\n' "${MARKDOWN_FILES[@]}"
 # Convert each markdown file to HTML
 for md_file in "${MARKDOWN_FILES[@]}"; do
     if [ -f "$md_file" ]; then
+        # Skip README.md files
+        if [[ "$(basename "$md_file")" == "README.md" ]]; then
+            echo "Skipping $md_file (README file)"
+            continue
+        fi
+        
         html_file="${md_file%.md}.html"
         echo "Converting $md_file to $html_file..."
         
