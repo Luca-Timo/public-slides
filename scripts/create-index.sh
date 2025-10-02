@@ -19,7 +19,12 @@ INDEX_FILE="index.html"
 echo "Creating table of contents in $INDEX_FILE..."
 
 # Find all HTML files in the repo root (excluding index.html itself)
-HTML_FILES=($(ls -1 *.html 2>/dev/null | grep -v "^index\.html$" || true))
+HTML_FILES=()
+while IFS= read -r -d '' file; do
+    if [[ "$(basename "$file")" != "index.html" ]]; then
+        HTML_FILES+=("$file")
+    fi
+done < <(find . -maxdepth 1 -name "*.html" -print0 2>/dev/null)
 
 # Start creating the HTML content
 cat > "$INDEX_FILE" << 'EOF'
@@ -83,7 +88,7 @@ else
     
     for html_file in "${HTML_FILES[@]}"; do
         # Extract title from filename (remove .html extension and format)
-        title=$(basename "$html_file" .html | sed 's/-/ /g' | sed 's/_/ /g' | sed 's/\b\w/\u&/g')
+        title=$(basename "$html_file" .html | sed 's/_/ /g' | sed 's/\b\w/\u&/g')
         
         echo "        <li>" >> "$INDEX_FILE"
         echo "            <a href=\"$html_file\">$title</a>" >> "$INDEX_FILE"

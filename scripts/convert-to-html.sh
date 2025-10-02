@@ -31,10 +31,15 @@ echo "Theme downloaded successfully to $THEME_FILE"
 cd "$REPO_ROOT"
 
 # Find all markdown files in the repo root (not in subdirectories)
-MARKDOWN_FILES=(*.md)
+MARKDOWN_FILES=()
+shopt -s nullglob  # Enable nullglob so *.md expands to nothing if no matches
+for file in *.md; do
+    MARKDOWN_FILES+=("$file")
+done
+shopt -u nullglob  # Disable nullglob
 
 # Check if any markdown files exist
-if [ ${#MARKDOWN_FILES[@]} -eq 1 ] && [ ! -f "${MARKDOWN_FILES[0]}" ]; then
+if [ ${#MARKDOWN_FILES[@]} -eq 0 ]; then
     echo "No markdown files found in the repo root."
     rm -rf "$TEMP_DIR"
     exit 0
