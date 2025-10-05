@@ -18,8 +18,8 @@ David Straub
 2. Grundlagen: Variablen, Datentypen, Verzweigungen
 3. Schleifen
 4. Funktionen
-5. Module & Bibliotheken
-6. Datenstrukturen
+5. Datenstrukturen
+6. Module & Bibliotheken
 7. Klassen
 8. Dateien
 9. Visualisierung
@@ -158,6 +158,8 @@ Bitte *kein* Anaconda …
 
 
 ### One-Minute-Paper
+
+Moodle: https://link.hm.edu/y4vj
 
 - Schreiben Sie 3 Dinge auf, die Sie heute gelernt haben
 - Was war am unklarsten?
