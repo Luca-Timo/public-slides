@@ -28,7 +28,7 @@ David Straub
 
 ### Gliederung des Kurses
 
-1. [Einführung](#einführung) (Physikalischen Größen, Einheiten)
+1. [Einführung](#einführung) (Physikalische Größen, Einheiten)
 2. [Das elektrische Feld](#das-elektrische-feld) (Ladungen, Kräfte, Felder, Potential, Spannung, Kapazität, Kondensatoren)
 3. [Gleichstrom](#gleichstrom) (Stromstärke, Widerstand, Stromkreisberechnungen, Energie, Leistung)
 4. [Magnetismus](#magnetismus) (Feld in Vakuum und Materie, Kräfte, Induktion)
