@@ -244,6 +244,10 @@ https://www.youtube.com/watch?v=MfavzjbZzl8
 ![bg 80% right:25%](https://upload.wikimedia.org/wikipedia/commons/b/b7/Proton_quark_structure.svg)
 
 
+### Coulumb’sches Gesetz – Experiment
+
+https://www.youtube.com/watch?v=9mFlELwuctI
+
 ### Coulomb’sches Gesetz (*Coulomb’s law*)
 
 - Experimente haben gezeigt, dass die Kraft zwischen zwei Punktladungen $Q_1$ und $Q_2$ proportional zur Größe der Ladungen und umgekehrt proportional zum Quadrat ihres Abstands $r$ ist
