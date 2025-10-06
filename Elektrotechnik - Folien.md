@@ -355,6 +355,42 @@ $$D = \frac{Q}{4\pi r^2}$$
 ### Beispiel: Unendlich langer, gerader Leiter
 
 
+### Elektrisches Feld in Materie
+
+- In nicht oder schwach leitenden Materialien können elektrische Felder zu **Polarisation** führen.
+- Bei der Polarisation richten sich die positiven und negativen Ladungen innerhalb des Materials unter dem Einfluss des elektrischen Feldes neu aus.
+- Dies führt zu einer Verschiebung der Ladungszentren und erzeugt ein internes elektrisches Feld, das dem äußeren Feld entgegenwirkt.
+- Solche polarisierbaren Materialien nennt man **Dielektrika**.
+
+### Abschwächung des elektrischen Feldes in Dielektrika
+
+Definition:
+
+$$\vec{E}_\text{Materie} = \underbrace{\vec{E}_\text{Vakuum}}_{\text{freie Ladungen}} - \underbrace{\vec{E}_\text{Polarisation}}_{\text{gebundene Ladungen}} = \frac{1}{\varepsilon_r} \cdot \vec{E}_\text{Vakuum}$$
+
+mit $\varepsilon_r \geq 1$ Permittivitätszahl (auch relative Permittivität). Beispiele:
+
+| Material     | $\varepsilon_r$ |
+|--------------|------------------|
+| Luft         | 1,00059          |
+| Gummi        | 2,5–3,5          |
+| Glas         | 5–7              |
+| Destilliertes Wasser | 81       |
+
+### Elektrische Flussdichte in Dielektrika
+
+**Konvention**: man vereinbart, dass die elektrische Flussdichte sich immer auf das durch die freien Ladungen erzeugte Feld bezieht.
+
+$$\vec{D} =\varepsilon_0 \vec{E}_\text{Materie} + \vec{P} = \varepsilon_0 \varepsilon_r \vec{E}_\text{Materie} = 
+\varepsilon \vec{E}_\text{Materie} = \varepsilon_0 \cdot \vec{E}_\text{Vakuum}$$
+
+Polarisation $\vec{P}= -\varepsilon_0 \vec{E}_\text{Polarisation}$
+
+$\vec{D}$ heißt daher auch (veraltet) **Elektrische Verschiebungsdichte** (*electric displacement field*).
+
+Vorteil: der Satz von Gauß gilt unverändert, wenn man nur die freien Ladungen berücksichtigt:
+
+$$\oint_{A} \vec{D} \cdot d\vec{A} = Q_{\text{innen, frei}}$$
 
 ### Elektrisches Potential und Spannung
 
@@ -391,7 +427,6 @@ Potentielle Energie bzgl. Referenzhöhe:
 
 $$E_\text{pot} = m \cdot g \cdot h = m \cdot \varphi_g(h)$$
 
-[PLOT]
 
 ### Spannung & Arbeit
 
