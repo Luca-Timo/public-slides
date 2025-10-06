@@ -153,7 +153,7 @@ Bitte *kein* Anaconda …
 
 - Python Online: https://pythononline.net/
 - JupyterLite: https://jupyter.org/try
-- ~~FK07 DataHub (JupyterHub):~~ https://datahub.cs.hm.edu/
+- FK07 DataHub (JupyterHub): https://datahub.cs.hm.edu/
 - Github Codespaces: https://github.com/DavidMStraub/python-codespace
 
 
