@@ -28,6 +28,62 @@ David Straub
 
 ![bg 80% opacity:0.15](https://upload.wikimedia.org/wikipedia/commons/2/2f/ISO_Exit_-_Right.svg)
 
+### Datentypen
+
+- `int` (Integer, Ganzzahlen): 1, 42, -7
+- `float` (Gleitkommazahlen): 3.14, -0.001, 2.0
+- `str` (String, Zeichenkette): `"Hallo"`, `'a'`, `"123"`
+- `bool` (Boolean, Wahrheitswert): `True`, `False`
+
+
+### Typumwandlung
+
+```python
+# Eingabe ist immer ein String
+alter_str = input("Wie alt bist du? ")
+print(alter_str + 1)  # Fehler! # String + Integer geht nicht
+alter = int(alter_str)  # Umwandlung in Integer
+print(alter + 1)  # Jetzt geht's
+```
+
+### Operatoren
+
+- Arithmetische Operatoren: `+`, `-`, `*`, `/`, `//` (Ganzzahldivision), `%` (Modulo), `**` (Exponentiation)
+- Vergleichsoperatoren: `==`, `!=`, `<`, `>`, `<=`, `>=`
+- Logische Operatoren: `and`, `or`, `not`
+
+
+### Die `input`-Funktion
+
+```python
+name = input("Wie ist dein Name? ")
+print("Hallo " + name)
+```
+
+
+### f-Strings
+
+```python
+name = "Alice"
+alter = 30
+print(f"Hallo {name}, du bist {alter} Jahre alt.")
+```
+
+
+
+### Verzweigungen
+
+```python
+temperatur = float(input("Wie ist die Temperatur draußen? (in °C): "))
+if temperatur < 0:
+    print("Kalt - Winterjacke anziehen!")
+elif temperatur <= 20:
+    print("Mild - Pullover reicht")
+else:
+    print("Warm - T-Shirt-Wetter!")
+```
+
+
 ### Aufgabe: imperiale Einheiten
 
 Schreiben Sie ein Programm, mit dem die in der Luftfahrt verbreiteten imperialen Einheiten Fuß, Seemeilen und Knoten in das metrische System (Meter, m/s) umgerechnet werden können.
