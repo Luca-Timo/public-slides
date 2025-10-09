@@ -5,6 +5,16 @@ paginate: true
 language: de
 footer: Programmieren – D. Straub
 headingDivider: 3
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    formats: ipynb,md
+    main_language: python
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.17.3
 ---
 # Programmieren
 
@@ -164,3 +174,487 @@ Moodle: https://link.hm.edu/y4vj
 - Schreiben Sie 3 Dinge auf, die Sie heute gelernt haben
 - Was war am unklarsten?
 - Gibt es etwas spezielles, das Sie in diesem Kurs lernen möchten?
+
+
+## Grundlagen: Variablen, Datentypen, Verzweigungen
+
+1. Variablen
+2. Einfache Datentypen (`int`, `bool`, `float`, `str`)
+3. Stringmanipulation
+4. Verzweigungen
+
+### Variablen
+
+Variablen speichern Werte:
+
+```python
+x = 42
+y = x
+x = 100
+print(y)
+```
+
+```python
+print(x)
+```
+
+### Variablennamen: Fallstricke
+
+```python
+# class = "Mathematik"  # SyntaxError!
+klass = "Mathematik"
+print(klass)
+```
+
+```python
+# Schlecht lesbar:
+l = 1
+I = 1  
+O = 0
+print(l, I, O)
+```
+
+### Namen: Konventionen
+
+```python
+# Variablen & Funktionen: snake_case 🐍
+first_name = "Alice"
+calculate_average()
+
+# Konstanten: UPPER_SNAKE_CASE 📢
+MAX_SIZE = 100
+API_KEY = "secret"
+
+# Klassen: PascalCase 🏛️
+class UserAccount:
+    pass
+
+# Privat: führender Unterstrich 🔒
+_internal_value = 42
+__very_private = "secret"
+```
+
+### Ganze Zahlen (int)
+
+Integers haben unbegrenzte Präzision:
+
+```python
+riesig = 2 ** 1000
+print(len(str(riesig)))
+```
+
+
+```python
+print(riesig % 1000)
+```
+
+
+### Division & Integers
+
+```python
+print(10 / 3)
+```
+
+
+```python
+print(type(10 / 3))
+```
+
+
+```python
+print(10 // 3)
+```
+
+
+```python
+print(-10 // 3)
+```
+
+
+
+### Wahrheitswerte (bool)
+
+Booleans sind eigentlich Integers:
+
+```python
+print(True + True)
+```
+
+
+```python
+print(True * 42)
+```
+
+
+```python
+print(False - True)
+```
+
+### Vergleichsoperatoren
+```python
+print(5 == 5)
+```
+
+```python
+print(5 != 3)
+```
+
+```python
+print(10 > 5)
+```
+
+```python
+print(5 >= 5)
+```
+
+```python
+print("Python" > "Java")  # Lexikografischer Vergleich
+```
+
+
+### Truthiness: Was ist wahr?
+
+```python
+print(bool(0))
+```
+
+
+```python
+print(bool(42))
+```
+
+
+```python
+print(bool(""))
+```
+
+
+```python
+print(bool("0"))
+```
+
+
+```python
+print(bool([]))
+```
+
+
+```python
+print(bool([0]))
+```
+
+
+### Vergleichsoperatoren: Chaining
+
+```python
+x = 5
+print(1 < x < 10)
+```
+
+
+```python
+print(10 < x < 20)
+```
+
+
+```python
+print(1 < x > 3)
+```
+
+
+### Identität vs. Gleichheit
+
+```python
+a = [1, 2, 3]
+b = [1, 2, 3]
+print(a == b)
+```
+
+
+```python
+print(a is b)
+```
+
+
+```python
+x = 256
+y = 256
+print(x is y)
+```
+
+
+```python
+x = 257
+y = 257
+print(x is y)
+```
+
+
+### Short-circuit Evaluation
+
+```python
+print(False and 1/0)
+```
+
+
+```python
+print(True or 1/0)
+```
+
+
+```python
+print(0 and print("Hallo"))
+```
+
+
+### Fließkommazahlen (float)
+
+IEEE 754 Double Precision Fallstricke:
+
+```python
+print(0.1 + 0.1 + 0.1)
+```
+
+
+```python
+print(0.1 + 0.1 + 0.1 == 0.3)
+```
+
+
+```python
+x = 0.1
+print(f"{x:.20f}")
+```
+
+
+### Gefährliche Float-Vergleiche
+
+```python
+result = 0.1 + 0.2
+if result == 0.3:
+    print("Mathematik funktioniert")
+else:
+    print("IEEE 754 schlägt zu")
+```
+
+
+```python
+# Besser:
+epsilon = 1e-10
+if abs(result - 0.3) < epsilon:
+    print("Praktisch gleich")
+else:
+    print("Unterschiedlich")
+```
+
+### Extreme Werte
+
+```python
+print(1e308)
+```
+
+
+```python
+print(1e309)
+```
+
+
+```python
+print(1e-324)
+```
+
+
+```python
+print(1e-325)
+```
+
+
+### NaN und Infinity
+
+```python
+print(float('inf') + 1)
+```
+
+
+```python
+print(float('inf') == float('inf'))
+```
+
+
+```python
+nan = float('nan')
+print(nan == nan)
+```
+
+
+```python
+print(nan != nan)
+```
+
+
+### Strings (str)
+
+Strings sind immutable - aber was bedeutet das?
+
+```python
+s = "Hallo"
+s[0] = "h"
+```
+
+
+```python
+s = "Python"
+original_id = id(s)
+s += " ist toll"
+print(id(s) == original_id)
+```
+
+
+### Escape Sequences
+
+```python
+print("C:\new_folder\test.txt")
+```
+
+
+```python
+print(r"C:\new_folder\test.txt")
+```
+
+
+```python
+print("Zeile 1\nZeile 2\tTab")
+```
+
+
+
+### f-Strings: Erweiterte Features
+
+```python
+x = 42
+print(f"{x=}")
+```
+
+
+```python
+pi = 3.14159
+print(f"{pi=:.3f}")
+```
+
+
+```python
+name = "Alice"
+age = 30
+print(f"{name} ist {age} Jahre alt")
+```
+
+
+### f-String Formatierung
+
+```python
+number = 1234567.89
+print(f"{number:,.2f}")
+```
+
+
+```python
+print(f"{number:>15,.2f}")
+```
+
+
+```python
+percent = 0.1234
+print(f"{percent:.1%}")
+```
+
+
+### f-String Besonderheiten
+
+```python
+name = "World"
+greeting = "Hello"
+print(f"{greeting} {name}")
+```
+
+
+```python
+name = "Python"
+print(f"{{{name}}}")
+```
+
+
+### Verzweigungen: Truthiness in der Praxis
+
+```python
+name = ""
+if name:
+    print("Name ist vorhanden")
+else:
+    print("Kein Name angegeben")
+```
+
+
+```python
+name = "Alice"
+if name:
+    print("Name ist vorhanden")
+else:
+    print("Kein Name angegeben")
+```
+
+
+### Ternary Operator
+
+```python
+age = 17
+status = "volljährig" if age >= 18 else "minderjährig"
+print(status)
+```
+
+
+```python
+temperature = 25
+weather = "warm" if temperature > 20 else "kühl"
+print(weather)
+```
+
+
+### Komplexe Bedingungen
+
+```python
+age = 17
+has_id = True
+if age >= 18 and has_id:
+    print("Einlass gewährt")
+elif age >= 16:
+    print("Einlass mit Begleitung")
+else:
+    print("Kein Einlass")
+```
+
+
+```python
+age = 20
+has_id = False
+if age >= 18 and has_id:
+    print("Einlass gewährt")
+elif age >= 16:
+    print("Einlass mit Begleitung") 
+else:
+    print("Kein Einlass")
+```
+
+### Aufgabe
+
+Schreibe ein Python-Programm um zu entscheiden, ob eine Rakete starten darf.
+
+**Eingaben:**
+- Treibstoff (%), Temperatur (°C), Crew (ja/nein), Wetter
+
+**Startbedingungen:**
+- Treibstoff ≥ 70%, Temperatur < 100°C, Crew bereit, Wetter ≠ "storm"
+
+**Ausgabe:**
+- ✅ "🚀 Startfreigabe erteilt!" oder ❌ "Start abgebrochen!" + Grund
+
+![bg right:30%](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SpaceX_Starship_ignition_during_IFT-5.jpg/960px-SpaceX_Starship_ignition_during_IFT-5.jpg)
