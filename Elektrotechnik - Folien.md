@@ -309,6 +309,27 @@ $$\vec{E}(\vec r) = \frac{Q}{4 \cdot \pi \cdot \varepsilon_0 \cdot r^2} \cdot \f
 - Die Dichte der Feldlinien ist proportional zur Stärke des elektrischen Feldes: Je dichter die Linien, desto stärker das Feld
 
 
+### Superpositionsprinzip
+
+Das elektrische Feld mehrerer (diskreter) Ladungen ist die Vektorsumme der Felder der einzelnen Ladungen
+$$\vec{E}(\vec{r}) = \sum_{i} \vec{E}_i(\vec{r})$$
+$$= \sum_{i} \frac{Q_i}{4 \pi \varepsilon_0 \cdot |\vec{r}-\vec{r}_i|^2} \cdot \frac{\vec{r}-\vec{r}_i}{|\vec{r}-\vec{r}_i|}$$
+
+Übergang zu kontinuierlicher Ladungsverteilung: Integral
+
+$$\vec{E}(\vec{r}) = \int_{V} \frac{\rho(\vec{r}') \cdot dV'}{4 \pi \varepsilon_0 \cdot |\vec{r}-\vec{r}'|^2} \cdot \frac{\vec{r}-\vec{r}'}{|\vec{r}-\vec{r}'|}$$
+
+
+
+### Feldlinien: Beispiele
+
+- Punktladung
+- Zwei gegensätzliche Punktladungen (Dipol)
+- Zwei gleichnamige Punktladungen
+- Positiv geladene Ebene
+- Zwei entgegengesetzt geladene Platten (Plattenkondensator)
+
+
 ### Elektrische Flussdichte (*electric flux density*)
 
 $$\vec{D} = \varepsilon_0 \cdot \vec{E}$$
@@ -331,9 +352,8 @@ Für eine konstante Flussdichte $D$ auf der Fläche $A$ gilt:  $Q = D(r) \cdot A
 
 ### Fluss durch geschlossene Oberflächen
 
-(Tafel)
 
-### Satz von Gauß (*Gauss's law*)
+### Satz von Gauß (*Gauss’s law*)
 
 Der elektrische Fluss durch eine geschlossene Oberfläche ist gleich der eingeschlossenen Ladung:
 
@@ -392,7 +412,7 @@ Vorteil: der Satz von Gauß gilt unverändert, wenn man nur die freien Ladungen 
 
 $$\oint_{A} \vec{D} \cdot d\vec{A} = Q_{\text{innen, frei}}$$
 
-### Elektrisches Potential und Spannung
+### Elektrische Arbeit
 
 Bewegung einer positiven Probeladung $Q_P$ im Feld einer positiven Punktladung $Q^+$
 
@@ -405,11 +425,17 @@ Hier:  $\vec{F}$  ist abhängig von $r$!
 
 $$W_{12} = \sum_{i} \Delta W_{i} = \sum_{i} F_{i} \cdot \Delta r$$
 
+### Elektrische Arbeit und Potential
+
+$$W_{12} = \sum_{i} \Delta W_{i} = \sum_{i} F_{i} \cdot \Delta r$$
+
+
 Integral:  $\Delta r \rightarrow 0$
 
 $$W_{12} = \int_{r_1}^{r_2} F(r) \cdot dr = Q_P \cdot \int_{r_1}^{r_2} E(r) \cdot dr
 = Q_P \cdot \int_{r_1}^{r_2} \frac{Q^+}{4 \cdot \pi \cdot \varepsilon \cdot r^2} dr$$
 $$= Q_P \cdot \left[ \frac{Q^+}{4 \cdot \pi \cdot \varepsilon} \cdot \frac{1}{r_1} - \frac{Q^+}{4 \cdot \pi \cdot \varepsilon} \cdot \frac{1}{r_2} \right]$$
+$$= Q_P \cdot (\varphi_1 - \varphi_2)$$
 
 ### Elektrisches Potential einer Punktladung
 
@@ -427,6 +453,24 @@ Potentielle Energie bzgl. Referenzhöhe:
 
 $$E_\text{pot} = m \cdot g \cdot h = m \cdot \varphi_g(h)$$
 
+- Höhenlinien sind Äquipotentiallinien
+- Die Kraft wirkt immer in Richtung des stärksten Gefälles (senkrecht zu den Äquipotentiallinien)
+- Die „Feldlinien“ sind nie in sich geschlossen
+
+### Potentialfelder
+
+Elektrostatische Felder sind **Potentialfelder** oder auch **wirbelfreie Felder**. Für sie gilt:
+
+- Feldlinien beginnen und enden auf Ladungen („Quellen“ oder „Senken“)
+- Feldlinien sind nie in sich geschlossen
+- Das Feld lässt sich als Gradient (Richtungsableitung) eines Skalarfeldes (Potential) darstellen
+
+Weitere Beispiele für Potentialfelder:
+
+- Schwerkraft auf der Erdoberfläche (2D)
+- Schwerkraft zwischen Himmelskörpern (3D)
+- Wärmefluss in Festkörpern (1D, 2D, 3D)
+- Grundwasserstrom (3D) (nur solange die Strömung wirbelfrei ist!)
 
 ### Spannung & Arbeit
 
@@ -448,3 +492,145 @@ Einheit: $[W] = \text{J}$ (Joule)
 
 Die elektrische Arbeit ist unabhängig vom Weg!
 
+
+
+
+### Beziehung zwischen elektrischem Feld und Spannung
+
+$$W_{12} = \int_{P_1}^{P_2} \vec{F} \cdot d\vec{s} = Q \cdot (\varphi_1 - \varphi_2) = Q \cdot U_{12}$$
+
+Für die elektrische Spannung gilt allgemein:
+
+$$U_{12} = \int_{P_1}^{P_2} \vec{E} \cdot d\vec{s} = \varphi_1 - \varphi_2$$
+
+### Homogenes elektrisches Feld
+
+Ein homogenes elektrisches Feld ist durch konstante Feldstärke und parallele Feldlinien gekennzeichnet.
+
+Wichtige Eigenschaften:
+- Konstante Feldstärke $E$ in Betrag und Richtung
+- Parallele Feldlinien
+- Äquipotentialflächen stehen senkrecht zu den Feldlinien
+- Die Spannung zwischen zwei Punkten ist $U = E \cdot d$, wobei $d$ der Abstand in Feldrichtung ist
+
+![bg 80% right:33%](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Field_lines_equipotentials_parallel_plates.svg/1920px-Field_lines_equipotentials_parallel_plates.svg.png)
+
+
+
+### Kondensatoren (*capacitors*)
+
+Kondensatoren sind elektrische Bauelemente, die elektrische Ladung und Energie speichern können.
+
+
+**Kapazität (*capacitance*)**
+
+$$C := \frac{Q}{U} $$
+
+
+Einheit: $[C] = \frac{\text{C}}{\text{V}} = \text{F}$ (Farad)
+
+
+### ⚠️ Kapazität ≠ Kapazität
+
+Die Kapazität (*capacity*) einer Batterie ist eine Ladungsmenge!
+
+z.B.: $\text{mAh} = 10^{-3} \, \text{A} \cdot 3600 \, \text{s} = 3{,}6 \, \text{C}$
+
+Nicht zu verwechseln mit der Kapazität (*capacitance*) eines Kondensators in Farad!
+
+### Plattenkondensator
+
+$$E =\frac{Q}{\varepsilon_0 \varepsilon_r A} ,\qquad U = E \cdot d = \frac{Q}{\varepsilon_0 \varepsilon_r A} \cdot d$$
+
+$$C=\frac{Q}{U} = \frac{\varepsilon_0 \varepsilon_r A}{d}$$
+
+Kapazität steigt mit:
+- Fläche $A$ der Platten
+- relativer Permittivität $\varepsilon_r$ des Dielektrikums
+- Abnahme des Plattenabstands $d$
+
+### Kugelkondensator
+
+Ein Kugelkondensator besteht aus zwei konzentrischen leitenden Kugelschalen mit den Radien $R_i$ (innen) und $R_a$ (außen).
+
+Die Kapazität berechnet sich als:
+
+$$C = 4 \cdot \pi \cdot \varepsilon_0 \cdot \varepsilon_r \cdot \left(\frac{1}{R_i} - \frac{1}{R_a}\right)^{-1}$$
+
+### Zylinderkondensator
+
+Ein Zylinderkondensator besteht aus zwei koaxialen leitenden Zylindern mit den Radien $r_i$ (innen) und $r_a$ (außen) und der Länge $l$.
+
+Die Kapazität berechnet sich als:
+
+$$C = 2 \cdot \pi \cdot \varepsilon_0 \cdot \varepsilon_r \cdot \frac{l}{\ln\frac{r_a}{r_i}}$$
+
+### Energie im Kondensator
+
+Im elektrischen Feld eines Kondensators ist Energie gespeichert, die bei Entladung wiedergewonnen werden kann.
+
+Während des Aufladevorgangs nimmt die Spannung mit der Ladung kontinuierlich zu:
+
+$$u(q) = \frac{q}{C}$$
+
+Die beim Aufladen gespeicherte Energie berechnet sich zu:
+
+$$W = \int_{0}^{Q} u(q) \cdot dq = \int_{0}^{Q} \frac{q}{C} \cdot dq = \frac{1}{2C} \cdot Q^2$$
+
+Der Energieinhalt eines Kondensators kann in drei äquivalenten Formen dargestellt werden:
+
+$$W = \frac{1}{2} \cdot \frac{Q^2}{C} = \frac{1}{2} \cdot Q \cdot U = \frac{1}{2} \cdot C \cdot U^2$$
+
+### Parallelschaltung von Kondensatoren
+
+Bei der Parallelschaltung von Kondensatoren addieren sich die Kapazitäten:
+
+$$C_{ges} = C_1 + C_2 + \dots + C_n = \sum_{i=1}^n C_i$$
+
+Eigenschaften:
+- Gleiche Spannung an allen Kondensatoren
+- Die Gesamtladung ist die Summe der Einzelladungen
+
+$$U_{ges} = U_1 = U_2 = \dots = U_n$$
+
+### Reihenschaltung von Kondensatoren
+
+Bei der Reihenschaltung von Kondensatoren addieren sich die Kehrwerte der Kapazitäten:
+
+$$\frac{1}{C_{ges}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n} = \sum_{i=1}^n \frac{1}{C_i}$$
+
+Eigenschaften:
+- Gleiche Ladung auf allen Kondensatoren
+- Die Gesamtspannung ist die Summe der Einzelspannungen
+
+$$U_{ges} = U_1 + U_2 + \dots + U_n = \sum_{i=1}^n U_i$$
+
+### Kondensatoren mit inhomogenen Dielektrika 1
+
+Wenn ein Plattenkondensator aus zwei Bereichen mit unterschiedlichen Dielektrika besteht, berechnet sich die Gesamtkapazität als:
+
+$$C = C_1 + C_2 = \frac{\varepsilon_0}{d} \cdot \left(\varepsilon_{r1} \cdot A_1 + \varepsilon_{r2} \cdot A_2\right)$$
+
+Dies entspricht einer Parallelschaltung von zwei Teilkondensatoren.
+
+### Kondensatoren mit inhomogenen Dielektrika 2
+
+Wenn ein Plattenkondensator aus zwei hintereinander liegenden Schichten mit unterschiedlichen Dielektrika besteht, berechnet sich die Gesamtkapazität als:
+
+$$C = \frac{\varepsilon_0 \cdot \varepsilon_{r1} \cdot \varepsilon_{r2} \cdot A}{\varepsilon_{r2} \cdot d_1 + \varepsilon_{r1} \cdot d_2}$$
+
+Dies entspricht einer Reihenschaltung von zwei Teilkondensatoren.
+
+
+### Übersicht: Größen im elektrischen Feld
+
+Größe | Definition | Einheit
+--- | --- | ---
+Elektrische Ladung (*electric charge*) | $Q$ | $[Q] = \text{C}$
+Spannung (*voltage*) | $U = \Delta \varphi$ | $[U] = \text{V}$
+Kapazität (*capacitance*) | $C = \frac{Q}{U}$ | $[C] = \text{F} = \frac{\text{C}}{\text{V}}$
+Elektrische Feldstärke (*electric field [strength]*) | $\vec{E} = \frac{\vec{F}}{Q}$ | $[\vec{E}] = \frac{\text{V}}{\text{m}}=\frac{\text{N}}{\text{C}}$
+Elektrische Flussdichte (*electric flux density*) = [Di-]Elektrische Verschiebungsdichte (*electric displacement field*) | $\vec{D} = \varepsilon_0 \varepsilon_r \vec{E}$ | $[\vec{D}] = \frac{\text{C}}{\text{m}^2}$
+Elektrische Feldkonstante (*electric constant*) = Permittivität des Vakuums (*vacuum permittivity*) | $\varepsilon_0$ | $[\varepsilon_0] = \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}$
+[Absolute] Permittivität (*[absolute] permittivity*) = ~~Dielektrizitätskonstante~~ | $\varepsilon$ | $[\varepsilon] = \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}$
+Relative Permittivität (*relative permittivity*) = ~~Relative Dielektrizitätskonstante~~  | $\varepsilon_r = \frac{\varepsilon}{\varepsilon_0}$ | dimensionslos
