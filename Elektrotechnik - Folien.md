@@ -517,9 +517,41 @@ Wichtige Eigenschaften:
 
 
 
+### Homogenes Feld mit dem Satz von Gauß: linke Seite
+
+Unendlich ausgedehnte, gleichmäßig geladene Ebene mit Flächenladungsdichte $\sigma$
+
+**Gesucht:** Elektrische Feldstärke $E$ im Abstand $d$ von der Ebene
+
+**Ansatz:** Anwendung des Satzes von Gauß mit einem zylindrischen Gauß'schen Volumen
+
+$$\oint_{A} \vec{D} \cdot d\vec{A} = Q_{\text{innen}}$$
+
+**Gauß'sche Fläche:** Zylinder mit Grundfläche $A$ und Achse senkrecht zur geladenen Ebene
+
+- Mantelfläche: $\vec{D} \perp d\vec{A} \Rightarrow \vec{D} \cdot d\vec{A} = 0$
+- Grundflächen: $\vec{D} \parallel d\vec{A} \Rightarrow \vec{D} \cdot d\vec{A} = D \cdot dA$
+
+$$\oint_{A} \vec{D} \cdot d\vec{A} = D \cdot A + D \cdot A = 2 \cdot D \cdot A$$
+
+
+### Homogenes Feld mit dem Satz von Gauß: rechte Seite
+
+**Eingeschlossene Ladung:** $Q_{\text{innen}} = \sigma \cdot A$
+
+**Satz von Gauß:**
+$$2 \cdot D \cdot A = \sigma \cdot A$$
+
+$$D = \frac{\sigma}{2} \quad \Rightarrow \quad E = \frac{\sigma}{2 \varepsilon_0 \varepsilon_r}$$
+
+**Ergebnis:** Das Feld ist homogen und unabhängig vom Abstand zur Ebene.
+
+
 ### Kondensatoren (*capacitors*)
 
-Kondensatoren sind elektrische Bauelemente, die elektrische Ladung und Energie speichern können.
+Kondensatoren sind elektrische Bauelemente, die elektrische Ladung speichern können.
+
+Die gespeicherte Ladung für eine gegebene Spannung wird bezeichnet als:
 
 
 **Kapazität (*capacitance*)**
@@ -528,6 +560,8 @@ $$C := \frac{Q}{U} $$
 
 
 Einheit: $[C] = \frac{\text{C}}{\text{V}} = \text{F}$ (Farad)
+
+![bg 80% right:40%](https://upload.wikimedia.org/wikipedia/commons/b/b9/Capacitors_%287189597135%29.jpg)
 
 
 ### ⚠️ Kapazität ≠ Kapazität
@@ -540,30 +574,90 @@ Nicht zu verwechseln mit der Kapazität (*capacitance*) eines Kondensators in Fa
 
 ### Plattenkondensator
 
+
 $$E =\frac{Q}{\varepsilon_0 \varepsilon_r A} ,\qquad U = E \cdot d = \frac{Q}{\varepsilon_0 \varepsilon_r A} \cdot d$$
 
-$$C=\frac{Q}{U} = \frac{\varepsilon_0 \varepsilon_r A}{d}$$
+$$C=\frac{Q}{U} = \frac{\varepsilon_0 \varepsilon_r A}{d}=\frac{\varepsilon A}{d}$$
 
 Kapazität steigt mit:
 - Fläche $A$ der Platten
 - relativer Permittivität $\varepsilon_r$ des Dielektrikums
 - Abnahme des Plattenabstands $d$
 
+![bg 80% right:33%](https://upload.wikimedia.org/wikipedia/commons/2/20/Plate_CapacitorII.svg)
+
 ### Kugelkondensator
 
 Ein Kugelkondensator besteht aus zwei konzentrischen leitenden Kugelschalen mit den Radien $R_i$ (innen) und $R_a$ (außen).
 
-Die Kapazität berechnet sich als:
+![bg 80% right:33%](https://upload.wikimedia.org/wikipedia/commons/3/3f/Spherical_Capacitor.svg)
+### Kugelkondensator: Herleitung mit dem Satz von Gauß
 
-$$C = 4 \cdot \pi \cdot \varepsilon_0 \cdot \varepsilon_r \cdot \left(\frac{1}{R_i} - \frac{1}{R_a}\right)^{-1}$$
+**Elektrisches Feld (Satz von Gauß):**
+
+$$\oint \vec{D} \cdot d\vec{A} = Q$$
+
+$$D(r) \cdot 4\pi r^2 = Q \Rightarrow D(r) = \frac{Q}{4\pi r^2}$$
+
+$$E(r) = \frac{D(r)}{\varepsilon} = \frac{Q}{4\pi \varepsilon r^2}$$
+
+### Kapazität des Kugelkondensators
+
+**Spannung zwischen den Kugeln:**
+
+$$U = \int_{R_1}^{R_2} E(r)\,dr = \frac{Q}{4\pi \varepsilon} \int_{R_1}^{R_2} \frac{1}{r^2}\,dr$$
+
+$$U = \frac{Q}{4\pi \varepsilon} \left( \frac{1}{R_1} - \frac{1}{R_2} \right)$$
+
+**Kapazität:**
+
+$$C = \frac{Q}{U} = 4\pi \varepsilon \frac{R_1 R_2}{R_2 - R_1}$$
+
 
 ### Zylinderkondensator
 
-Ein Zylinderkondensator besteht aus zwei koaxialen leitenden Zylindern mit den Radien $r_i$ (innen) und $r_a$ (außen) und der Länge $l$.
+Ein Zylinderkondensator besteht aus zwei koaxialen leitenden Zylindern mit den Radien $R_1$ (innen) und $R_2$ (außen) und der Länge $l$.
 
-Die Kapazität berechnet sich als:
+![bg 80% right:33%](https://upload.wikimedia.org/wikipedia/commons/b/b8/Cylindrical_CapacitorII.svg)
 
-$$C = 2 \cdot \pi \cdot \varepsilon_0 \cdot \varepsilon_r \cdot \frac{l}{\ln\frac{r_a}{r_i}}$$
+### Zylinderkondensator: Herleitung mit dem Satz von Gauß
+
+**Gesucht:** Elektrisches Feld zwischen den Zylindern
+
+**Ansatz:** Satz von Gauß mit zylindrischer Gauß'scher Fläche (Radius $r$, Länge $l$)
+
+$$\oint \vec{D} \cdot d\vec{A} = Q_{\text{eingeschlossen}}$$
+
+**Symmetrie:** Das Feld zeigt radial nach außen, konstant auf Zylinderflächen
+
+- Mantelfläche: $\vec{D} \parallel d\vec{A} \Rightarrow \vec{D} \cdot d\vec{A} = D \cdot dA$
+- Grundflächen: $\vec{D} \perp d\vec{A} \Rightarrow \vec{D} \cdot d\vec{A} = 0$
+
+$$\oint \vec{D} \cdot d\vec{A} = D(r) \cdot 2\pi r l = Q$$
+
+### Zylinderkondensator: Elektrisches Feld
+
+**Aus dem Satz von Gauß:**
+
+$$D(r) \cdot 2\pi r l = Q$$
+
+$$D(r) = \frac{Q}{2\pi r l}$$
+
+$$E(r) = \frac{D(r)}{\varepsilon} = \frac{Q}{2\pi \varepsilon r l}$$
+
+**Ergebnis:** Das elektrische Feld nimmt mit $\frac{1}{r}$ ab.
+
+### Zylinderkondensator: Spannung und Kapazität
+
+**Spannung zwischen den Zylindern:**
+
+$$U = \int_{R_1}^{R_2} E(r)\,dr = \frac{Q}{2\pi \varepsilon l} \int_{R_1}^{R_2} \frac{1}{r}\,dr$$
+
+$$U = \frac{Q}{2\pi \varepsilon l} \cdot \ln\frac{R_2}{R_1}$$
+
+**Kapazität:**
+
+$$C = 2 \cdot \pi \cdot \varepsilon_0 \cdot \varepsilon_r \cdot \frac{l}{\ln\frac{R_2}{R_1}}$$
 
 ### Energie im Kondensator
 
@@ -571,41 +665,45 @@ Im elektrischen Feld eines Kondensators ist Energie gespeichert, die bei Entladu
 
 Während des Aufladevorgangs nimmt die Spannung mit der Ladung kontinuierlich zu:
 
-$$u(q) = \frac{q}{C}$$
+$$U(Q) = \frac{Q}{C}$$
 
 Die beim Aufladen gespeicherte Energie berechnet sich zu:
 
-$$W = \int_{0}^{Q} u(q) \cdot dq = \int_{0}^{Q} \frac{q}{C} \cdot dq = \frac{1}{2C} \cdot Q^2$$
+$$W = \int_{0}^{Q} U(q) \cdot dq = \int_{0}^{Q} \frac{q}{C} \cdot dq = \frac{Q^2}{2C}= \frac{1}{2}  Q  U = \frac{1}{2}  C  U^2$$
 
-Der Energieinhalt eines Kondensators kann in drei äquivalenten Formen dargestellt werden:
 
-$$W = \frac{1}{2} \cdot \frac{Q^2}{C} = \frac{1}{2} \cdot Q \cdot U = \frac{1}{2} \cdot C \cdot U^2$$
+$$[W] = [U] \cdot [Q] = \text{V} \cdot \text{C} = \text{V} \cdot \text{A} \cdot \text{s} = \text{W} \cdot \text{s} = \text{J}$$
 
 ### Parallelschaltung von Kondensatoren
 
 Bei der Parallelschaltung von Kondensatoren addieren sich die Kapazitäten:
 
-$$C_{ges} = C_1 + C_2 + \dots + C_n = \sum_{i=1}^n C_i$$
+$$C_{\text{ges}} = C_1 + C_2 + \dots + C_n = \sum_{i=1}^n C_i$$
 
 Eigenschaften:
 - Gleiche Spannung an allen Kondensatoren
 - Die Gesamtladung ist die Summe der Einzelladungen
 
-$$U_{ges} = U_1 = U_2 = \dots = U_n$$
+$$U_{\text{ges}} = U_1 = U_2 = \dots = U_n$$
 
 ### Reihenschaltung von Kondensatoren
 
 Bei der Reihenschaltung von Kondensatoren addieren sich die Kehrwerte der Kapazitäten:
 
-$$\frac{1}{C_{ges}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n} = \sum_{i=1}^n \frac{1}{C_i}$$
+$$\frac{1}{C_{\text{ges}}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n} = \sum_{i=1}^n \frac{1}{C_i}$$
 
 Eigenschaften:
-- Gleiche Ladung auf allen Kondensatoren
+- Gleiche Ladung auf allen Kondensatoren $Q_1 = Q_2 = \dots = Q_n = Q_{\text{ges}}$
 - Die Gesamtspannung ist die Summe der Einzelspannungen
 
-$$U_{ges} = U_1 + U_2 + \dots + U_n = \sum_{i=1}^n U_i$$
+$$U_{\text{ges}} = U_1 + U_2 + \dots + U_n = \sum_{i=1}^n U_i$$
+
+
+
+$$C_{\text{ges}} = \frac{Q_{\text{ges}}}{U_{\text{ges}}} = \frac{Q_{\text{ges}}}{U_1 + U_2 + \dots + U_n} =  \frac{Q_{\text{ges}}}{Q_{\text{ges}} \cdot \left(\frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n}\right)} = \frac{1}{\frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n}}$$
 
 ### Kondensatoren mit inhomogenen Dielektrika 1
+
 
 Wenn ein Plattenkondensator aus zwei Bereichen mit unterschiedlichen Dielektrika besteht, berechnet sich die Gesamtkapazität als:
 
