@@ -26,8 +26,8 @@ David Straub
 
 1. Einführung
 2. Grundlagen: Variablen, Datentypen, Verzweigungen
-3. Schleifen
-4. Funktionen
+3. Funktionen
+4. Schleifen
 5. Datenstrukturen
 6. Module & Bibliotheken
 7. Klassen
@@ -390,7 +390,7 @@ print(x is y)
 ```
 
 
-### Short-circuit Evaluation
+### Kurzschlussauswertung
 
 ```python
 print(False and 1/0)
@@ -407,7 +407,7 @@ print(0 and print("Hallo"))
 ```
 
 
-### Fließkommazahlen (float)
+### Gleitkommazahlen (float)
 
 IEEE 754 Double Precision Fallstricke:
 
@@ -426,26 +426,15 @@ x = 0.1
 print(f"{x:.20f}")
 ```
 
-
-### Gefährliche Float-Vergleiche
-
-```python
-result = 0.1 + 0.2
-if result == 0.3:
-    print("Mathematik funktioniert")
-else:
-    print("IEEE 754 schlägt zu")
-```
-
+### Vergleich von Gleitkommazahlen
 
 ```python
-# Besser:
-epsilon = 1e-10
-if abs(result - 0.3) < epsilon:
-    print("Praktisch gleich")
-else:
-    print("Unterschiedlich")
+a = 0.1 + 0.1 + 0.1
+b = 0.3
+tolerance = 1e-10
+print(abs(a - b) < tolerance)
 ```
+
 
 ### Extreme Werte
 
@@ -494,7 +483,7 @@ print(nan != nan)
 
 ### Strings (str)
 
-Strings sind immutable - aber was bedeutet das?
+Strings sind immutable – aber was bedeutet das?
 
 ```python
 s = "Hallo"
@@ -526,27 +515,20 @@ print(r"C:\new_folder\test.txt")
 print("Zeile 1\nZeile 2\tTab")
 ```
 
-
-
-### f-Strings: Erweiterte Features
-
-```python
-x = 42
-print(f"{x=}")
-```
-
-
-```python
-pi = 3.14159
-print(f"{pi=:.3f}")
-```
-
+### String-Formatierung mit f-Strings
 
 ```python
 name = "Alice"
-age = 30
-print(f"{name} ist {age} Jahre alt")
+age = 25
+print(f"Hallo, ich bin {name} und {age} Jahre alt")
 ```
+
+Vorteile gegenüber älteren Methoden:
+- Lesbar und intuitiv
+- Direkte Variableneinbettung
+- Schneller als `.format()` oder `%`-Formatierung
+- Unterstützt Ausdrücke: `f"Das Ergebnis ist {x + y}"`
+
 
 
 ### f-String Formatierung
@@ -582,6 +564,56 @@ name = "Python"
 print(f"{{{name}}}")
 ```
 
+### Aufgabe: Persönlicher Datenrechner
+
+Schreibe ein Python-Skript, das persönliche Daten verarbeitet:
+
+**Gegeben:**
+- Name, Geburtsjahr, Größe (cm), Gewicht (kg)
+
+**Berechne und gib aus:**
+- Alter (aktuelles Jahr: 2025)
+- BMI (Gewicht / (Größe in m)²)
+- Personendaten als formatierte f-Strings
+- Wahrheitswerte für: ist volljährig, ist normalgewichtig (BMI 18,5-24,9)
+
+
+### Kontrollstrukturen: Übersicht
+
+**Was sind Kontrollstrukturen?**
+- Mechanismen zur Steuerung des Programmflusses
+- Bestimmen die Reihenfolge der Befehlsausführung
+- Ermöglichen komplexe Programmlogik
+
+**Grundtypen:**
+1. **Sequenz** – Befehle nacheinander (Standard)
+2. **Verzweigung** – Bedingte Ausführung (`if`, `elif`, `else`)
+3. **Wiederholung** – Schleifen (`for`, `while`)
+
+
+### Verzweigungen: Das Herzstück der Entscheidung
+
+**Konzept:**
+- Programme müssen Entscheidungen treffen
+- Verschiedene Pfade basierend auf Bedingungen
+- Ermöglicht adaptive und intelligente Programme
+
+**Syntax-Muster:**
+```python
+if bedingung1:
+    # Code wenn bedingung1 wahr
+elif bedingung2:
+    # Code wenn bedingung2 wahr  
+else:
+    # Code wenn keine Bedingung wahr
+```
+
+### Verzweigungen: Wichtige Konzepte
+
+- Einrückung (Indentation) definiert Codeblöcke
+- Bedingungen werden von oben nach unten geprüft
+- Nur der erste wahre Zweig wird ausgeführt
+
 
 ### Verzweigungen: Truthiness in der Praxis
 
@@ -602,21 +634,6 @@ else:
     print("Kein Name angegeben")
 ```
 
-
-### Ternary Operator
-
-```python
-age = 17
-status = "volljährig" if age >= 18 else "minderjährig"
-print(status)
-```
-
-
-```python
-temperature = 25
-weather = "warm" if temperature > 20 else "kühl"
-print(weather)
-```
 
 
 ### Komplexe Bedingungen
