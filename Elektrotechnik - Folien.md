@@ -341,6 +341,7 @@ Fluss durch eine Fläche $A$:
 
 $$\Psi = \int_{A} \vec{D} \cdot d\vec{A}$$
 
+![bg right:40% 80%](https://upload.wikimedia.org/wikipedia/commons/1/1f/Electric-flux.jpg)
 
 
 ### Elektrische Flussdichte einer Punktladung
@@ -374,6 +375,16 @@ Daraus folgt:
 $$D = \frac{Q}{4\pi r^2}$$
 
 ### Beispiel: Unendlich langer, gerader Leiter
+
+Für einen unendlich langen Leiter mit Linienladungsdichte $\lambda$ verwenden wir eine zylindrische Oberfläche (Radius $r$, Länge $l$).
+
+**Symmetrie:** $\vec{D}$ ist radial und konstant auf der Mantelfläche
+
+$$\oint_{A} \vec{D} \cdot d\vec{A} = D(r) \cdot 2\pi r l = \lambda l$$
+
+**Ergebnis:**
+$$D(r) = \frac{\lambda}{2\pi r}, \quad E(r) = \frac{\lambda}{2\pi \varepsilon_0 r}$$
+
 
 
 ### Elektrisches Feld in Materie
