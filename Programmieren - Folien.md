@@ -25,7 +25,7 @@ David Straub
 ## Gliederung
 
 1. Einführung
-2. Grundlagen: Variablen, Datentypen, Verzweigungen
+2. [Grundlagen: Variablen, Datentypen, Verzweigungen](#grundlagen)
 3. Funktionen
 4. Schleifen
 5. Datenstrukturen
@@ -176,12 +176,11 @@ Moodle: https://link.hm.edu/y4vj
 - Gibt es etwas spezielles, das Sie in diesem Kurs lernen möchten?
 
 
-## Grundlagen: Variablen, Datentypen, Verzweigungen
+## Grundlagen
 
 1. Variablen
 2. Einfache Datentypen (`int`, `bool`, `float`, `str`)
-3. Stringmanipulation
-4. Verzweigungen
+3. [Verzweigungen](#verzweigungen)
 
 ### Variablen
 
@@ -479,11 +478,41 @@ print(nan == nan)
 ```python
 print(nan != nan)
 ```
+### Strings
+
+```python
+# Verschiedene Anführungszeichen
+single = 'Hallo'
+double = "Welt"
+print(single + " " + double)
+```
+
+```python
+triple = """Mehrzeiliger
+String"""
+print(triple)
+```
+
+### String Indizierung & „Slicing“
+
+```python
+# Indexzugriff
+text = "Python"
+print(text[0])
+```
+
+```python
+print(text[-1])
+```
+
+```python
+print(text[2:5])
+```
 
 
-### Strings (str)
+### Strings: *immutability*
 
-Strings sind immutable – aber was bedeutet das?
+Strings sind unveränderlich (*immutable*)
 
 ```python
 s = "Hallo"
@@ -496,6 +525,53 @@ s = "Python"
 original_id = id(s)
 s += " ist toll"
 print(id(s) == original_id)
+```
+
+
+
+### String Basics: Methoden
+
+```python
+text = "  Python Programmierung  "
+print(text.upper())
+```
+
+```python
+print(text.lower())
+```
+
+```python
+print(text.strip())
+```
+
+```python
+print(text.replace("Python", "Java"))
+```
+
+### Strings Aufteilen & Verbinden
+
+```python
+# Aufteilen und Verbinden
+words = "Python ist toll".split()
+print(words)
+```
+
+```python
+print("-".join(words))
+```
+
+### Strings und Unicode: Emoji
+
+```python
+# Strings unterstützen vollständig Unicode
+message = "Python ist toll! 🐍✨"
+print(message)
+```
+
+```python
+# Emoji sind normale Zeichen
+emoji_string = "🚀🌟💻"
+print(len(emoji_string))
 ```
 
 
@@ -591,7 +667,7 @@ Schreibe ein Python-Skript, das persönliche Daten verarbeitet:
 3. **Wiederholung** – Schleifen (`for`, `while`)
 
 
-### Verzweigungen: Das Herzstück der Entscheidung
+### Verzweigungen
 
 **Konzept:**
 - Programme müssen Entscheidungen treffen
