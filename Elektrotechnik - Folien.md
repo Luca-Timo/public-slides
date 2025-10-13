@@ -197,9 +197,10 @@ https://www.youtube.com/watch?v=MfavzjbZzl8
 1. Elektrische Ladung
 2. Coulomb’sches Gesetz
 3. Elektrisches Feld im Vakuum
-4. Elektrisches Feld in Materie
-5. Potential, Spannung, Arbeit
-6. Homogenes Feld und Kondensatoren
+4. [Feldlinien und Gauß’sches Gesetz](#feldlinien)
+5. Elektrisches Feld in Materie
+6. Potential, Spannung, Arbeit
+7. Homogenes Feld und Kondensatoren
 
 
 ### Die vier fundamentalen Wechselwirkungen
@@ -732,3 +733,132 @@ Elektrische Flussdichte (*electric flux density*) = [Di-]Elektrische Verschiebun
 Elektrische Feldkonstante (*electric constant*) = Permittivität des Vakuums (*vacuum permittivity*) | $\varepsilon_0$ | $[\varepsilon_0] = \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}$
 [Absolute] Permittivität (*[absolute] permittivity*) = ~~Dielektrizitätskonstante~~ | $\varepsilon$ | $[\varepsilon] = \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}$
 Relative Permittivität (*relative permittivity*) = ~~Relative Dielektrizitätskonstante~~  | $\varepsilon_r = \frac{\varepsilon}{\varepsilon_0}$ | dimensionslos
+
+
+## Gleichstrom
+
+1. Stromstärke und Stromdichte
+2. Widerstand und Ohm’sches Gesetz
+
+
+### Elektrischer Strom (*electric current*)
+
+Strom ist der gerichtete Fluss von elektrischer Ladung
+
+- Stromdichte $\vec{J} = \rho \cdot \vec{v}$
+    - $\vec{v}$: Geschwindigkeit *positiver* Ladungsträger
+- Stromstärke $I = \int_A \vec{J} \cdot d\vec{A} = \dfrac{dQ}{dt}$
+- $[I] = \text{A} = \dfrac{\text{C}}{\text{s}}$
+- $[\vec{J}] = \dfrac{\text{A}}{\text{m}^2}$
+
+![bg right:40% 90%](https://upload.wikimedia.org/wikipedia/commons/f/f0/Stromdichte.svg)
+
+
+### Stromrichtung & Ladungsträger
+
+![bg right:40% 90%](https://upload.wikimedia.org/wikipedia/commons/3/3f/ElectricCurrent.gif)
+
+- $\vec{J} = \rho \cdot \vec{v}$ zeigt in die Richtung, in die sich *positive* Ladung bewegt – egal ob die tatsächlichen Ladungsträger positiv oder negativ sind!
+- Das ist auch die *Zählrichtung* der Stromstärke $I$
+
+
+### Stromleitung in Metallen
+
+- In Metallen gibt jedes Atom Elektronen ab, die sich frei im Gitter der positiv geladenen Atomrümpfe bewegen können („Elektronengas“)
+- Die Ladungsdichte der Elektronen ist jederzeit konstant, da eine Ansammlung ein elektrisches Feld erzeugen würde, dass durch Abstoßung der Elektronen wieder ausgeglichen wird -> der Leiter ist überall elektrisch neutral
+
+
+![bg right:40% 90%](https://upload.wikimedia.org/wikipedia/commons/4/41/Nuvola_di_elettroni.svg)
+
+
+### Metalle im elektrischen Feld
+
+Erfährt das Elektronengas ein elektrisches Feld, bewegen sich die Elektronen mit einer mittleren Geschwindigkeit $\vec{v}_d$ (Driftgeschwindigkeit) *entgegen* der Feldrichtung $\vec{v}_d = \vec{J}/\rho$, $\rho =- ne$.
+
+### Zahlenbeispiel: Driftgeschwindigkeit im Kupferdraht
+
+Kupfer, $A=1 \, \text{mm}^2$, $I=1 \, \text{A}$:
+
+- Dichte freier Elektronen: $n \approx 8{,}5 \cdot 10^{28} \, \frac{1}{\text{m}^3}$
+- Ladungsträgerdichte: $\rho = -n \cdot e \approx -1{,}36 \cdot 10^{10} \, \frac{\text{C}}{\text{m}^3}$
+- Stromdichte: $|\vec{J}| = \frac{I}{A} = \frac{1 \, \text{A}}{1 \cdot 10^{-6} \, \text{m}^2} = 1 \cdot 10^{6} \, \frac{\text{A}}{\text{m}^2}$
+- Driftgeschwindigkeit: $|\vec{v_d}| = \frac{|\vec{J}|}{|\rho|} \approx 7{,}35 \cdot 10^{-5} \, \frac{\text{m}}{\text{s}} \approx 0{,}26 \, \frac{\text{m}}{\text{h}}$ 🐌
+
+
+### Elektrische Leitfähigkeit von Metallen (*electric conductivity*)
+
+- Erfährt das Elektronengas ein elektrisches Feld, bewegen sich die Elektronen *entgegen* der Feldrichtung
+- Für ein gegebenes Material ist die Stromdichte umso höher, je höher das elektrische Feld ist
+- Der Proportionalitätsfaktor ist die elektrische Leitfähigkeit $\sigma$ des Materials
+
+$$\vec{J} = \sigma \cdot \vec{E}$$
+
+= Ohm’sches Gesetz (*Ohm’s law*)
+
+### Ohm’sches Gesetz im linearen Leiter
+
+$$\vec{J} = \sigma \cdot \vec{E}$$
+
+- Stromdichte muss konstant sein
+- Elektrisches Feld muss konstant sein
+- Potential $\varphi$ muss linear abfallen
+    - $\phi(l) = \phi(0) - E \cdot l$
+    - $U = \phi(0) - \phi(l) = E \cdot l$
+
+$$I = J \cdot A = \sigma \cdot E \cdot A = \sigma \cdot \frac{U}{l} \cdot A = \frac{U}{R}$$
+
+- Elektrischer Widerstand $R = \frac{l}{\sigma \cdot A}$ (*electric resistance*)
+
+## Widerstand und Leitwert
+
+Der elektrische Widerstand $R$ ist definiert durch das Ohmsche Gesetz:
+
+$$R = \frac{U}{I}$$
+
+Einheit: $[R] = \frac{\text{V}}{\text{A}} = \Omega$ (Ohm)
+
+Der elektrische Leitwert $G$ ist der Kehrwert des Widerstands:
+
+$$G = \frac{1}{R} = \frac{I}{U}$$
+
+Einheit: $[G] = \frac{\text{A}}{\text{V}} = \text{S}$ (Siemens)
+
+
+### Übersicht der Größen im linearen Leiter
+
+
+Größe | Definition | Einheit | Name
+--- | --- | --- | ---
+Spannung (*voltage*) | $U = \Delta \varphi$ | $[U] = \text{V}$ | Volt
+Stromstärke (*current*) | $I = \frac{\Delta Q}{\Delta t}$ | $[I] = \text{A}$ | Ampere
+Widerstand (*resistance*) | $R = \frac{U}{I}$ | $[R] = \Omega$ | Ohm
+Leitwert (*conductance*) | $G = \frac{1}{R}$ | $[G] = \text{S} = \frac{1}{\Omega}$ | Siemens
+spezifischer Widerstand (*resistivity*) | $\rho = R \frac{A}{l}$ | $[\rho] = \Omega \cdot \text{m}$ | Ohm-Meter
+Leitfähigkeit (*conductivity*) | $\sigma = \frac{1}{\rho}$ | $[\sigma] = \text{S/m}$ | Siemens pro Meter
+
+
+
+### Temperaturabhängigkeit des Widerstands
+
+Bei den meisten Materialien ändert sich der Widerstand mit der Temperatur:
+
+$$R(T) = R(T_0) \cdot [1 + \alpha \cdot (T - T_0)]$$
+
+Dabei ist:
+- $\alpha$ der Temperaturkoeffizient des Widerstands (Einheit: $[\alpha] = \frac{1}{\text{K}}$)
+- $T_0$ die Bezugstemperatur (üblicherweise 20°C oder 0°C)
+- $T$ die aktuelle Temperatur
+
+
+### Elektrische Leitfähigkeit verschiedener Materialien
+
+Bei Leitern nimmt der Widerstand mit steigender Temperatur zu (positiver Temperaturkoeffizient α > 0).
+
+Typische Werte für einige Leitermaterialien bei 20°C:
+
+| Leitermaterial | Spez. Widerstand $\rho$ (µΩ·m) | Leitfähigkeit $\sigma$ (MS/m) | Temperaturkoeffizient $\alpha$ (1/K) |
+|----------------|--------------------------------------|-------------------------|--------------------------------------|
+| Silber         | 0,0165                               | 60,6                    | 3,7 · 10<sup>−3</sup>                |
+| Kupfer         | 0,0176                               | 56,8                    | 3,9 · 10<sup>−3</sup>                |
+| Aluminium      | 0,0278                               | 36                      | 3,7 · 10<sup>−3</sup>                |
+| Messing        | 0,075                                | 13,3                    | 1,6 · 10<sup>−3</sup>                |
