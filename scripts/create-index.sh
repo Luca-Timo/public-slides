@@ -98,8 +98,17 @@ else
     echo "    </ul>" >> "$INDEX_FILE"
 fi
 
-# Complete the HTML
+# Add GitHub repository link at the bottom
 cat >> "$INDEX_FILE" << 'EOF'
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; text-align: center;">
+        <p style="font-size: 0.9rem; color: #666;">
+            <a href="https://github.com/DavidMStraub/public-slides" style="color: #0066cc; text-decoration: none;">
+                View source on GitHub
+            </a>
+        </p>
+    </div>
+
 </body>
 </html>
 EOF
