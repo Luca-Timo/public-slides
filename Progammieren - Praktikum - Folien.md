@@ -92,7 +92,7 @@ Das Programm soll zunächst Fragen, welche der drei Einheiten umgerechnet werden
 
 **Umrechnungswerte**
 
-- 1 f = 0.3048 m
+- 1 ft = 0.3048 m
 - 1 NM = 1852 m
 - 1 kn = 1 NM/h
 
