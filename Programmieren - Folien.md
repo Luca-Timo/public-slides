@@ -26,7 +26,7 @@ David Straub
 
 1. Einführung
 2. [Grundlagen: Variablen, Datentypen, Verzweigungen](#grundlagen)
-3. Funktionen
+3. [Funktionen](#funktionen)
 4. Schleifen
 5. Datenstrukturen
 6. Module & Bibliotheken
@@ -751,3 +751,227 @@ Schreibe ein Python-Programm um zu entscheiden, ob eine Rakete starten darf.
 - ✅ "🚀 Startfreigabe erteilt!" oder ❌ "Start abgebrochen!" + Grund
 
 ![bg right:30%](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SpaceX_Starship_ignition_during_IFT-5.jpg/960px-SpaceX_Starship_ignition_during_IFT-5.jpg)
+
+## Funktionen
+
+### Warum Funktionen? 
+
+Das DRY-Prinzip: **"Don't Repeat Yourself"**
+
+```python
+FOOT = 0.3048
+NAUTICAL_MILE = 1852.0
+
+altitude_ft = 35000
+altitude_m = altitude_ft * FOOT  # Flughöhe
+print(f"Flughöhe: {altitude_ft} ft = {altitude_m:.0f} m")
+
+distance_nm = 450
+distance_m = distance_nm * NAUTICAL_MILE  # Strecke
+print(f"Strecke: {distance_nm} nm = {distance_m:.0f} m")
+
+# usw. ...
+```
+
+Probleme: Code-Duplikation, Fehleranfällig, schwer zu ändern
+
+### Funktionen: Die elegante Lösung
+
+```python
+def fuss_zu_meter(fuss):
+    return fuss * 0.3048
+
+def seemeilen_zu_meter(seemeilen):
+    return seemeilen * 1852.0
+
+
+# Jetzt einfach und wiederverwendbar:
+print(f"Flughöhe: {fuss_zu_meter(35000):.0f} m")
+print(f"Landebahn: {fuss_zu_meter(8000):.0f} m")
+print(f"Reichweite: {seemeilen_zu_meter(3000):.0f} m")
+```
+
+**Vorteile:** Wiederverwendbar, lesbar, wartbar, weniger Fehler!
+
+### Anatomie einer Funktion
+
+```python
+def funktionsname(parameter1, parameter2):
+    """Optionaler Docstring zur Dokumentation"""
+    # Funktions-Code hier
+    ergebnis = parameter1 + parameter2
+    return ergebnis  # Optional: Rückgabewert
+```
+
+**Aufbau:**
+- `def` - Schlüsselwort für Funktionsdefinition
+- `funktionsname` - Aussagekräftiger Name (snake_case 🐍)
+- `()` - Parameter in runden Klammern
+- `:` - Doppelpunkt zum Start des Funktionsblocks
+- Eingerückter Code-Block
+- `return` - Optionale Rückgabe
+
+### Erste einfache Funktion
+
+```python
+def mission_start():
+    print("🚀 Mission Control: Start-Sequenz initiiert")
+    print("✅ Alle Systeme bereit für den Start!")
+
+# Funktion aufrufen:
+mission_start()
+```
+
+### Funktionen mit Parametern
+
+```python
+def mission_status(spacecraft):
+    print(f"🛰️ {spacecraft} Status: Alle Systeme nominal")
+    print("Bereit für nächste Manöver-Phase")
+
+mission_status("ISS")
+mission_status("Artemis I")
+mission_status("Dragon Capsule")
+```
+
+### Mehrere Parameter
+
+```python
+def flugdaten_anzeigen(flugzeug_typ, hoehe_ft, geschwindigkeit_kn):
+    hoehe_m = hoehe_ft * 0.3048
+    geschwindigkeit_kmh = geschwindigkeit_kn * 1.852
+    print(f"✈️ {flugzeug_typ}")
+    print(f"Höhe: {hoehe_ft} ft ({hoehe_m:.0f} m)")
+    print(f"Geschwindigkeit: {geschwindigkeit_kn} kn ({geschwindigkeit_kmh:.0f} km/h)")
+    
+# Verschiedene Aufrufe:
+flugdaten_anzeigen("Airbus A380", 35000, 450)
+flugdaten_anzeigen(hoehe_ft=25000, flugzeug_typ="Boeing 737", geschwindigkeit_kn=420)
+```
+
+### Rückgabewerte: return
+
+```python
+def berechne_orbital_geschwindigkeit(hoehe_km):
+    # Vereinfachte Berechnung für kreisförmige Umlaufbahn
+    erdradius = 6371  # km
+    gravitationskonstante = 398600  # km³/s²
+    r = erdradius + hoehe_km
+    geschwindigkeit = (gravitationskonstante / r) ** 0.5
+    return geschwindigkeit
+
+# ISS-Orbitalgeschwindigkeit berechnen:
+iss_hoehe = 408  # km
+v_orbital = berechne_orbital_geschwindigkeit(iss_hoehe)
+print(f"ISS Orbitalgeschwindigkeit: {v_orbital:.2f} km/s")
+```
+
+
+### Formeln für die Triebwerksanalyse
+
+$$I_{\text{sp}} = \frac{F}{\dot{m} \cdot g}$$
+
+$$\text{TWR} = \frac{F}{m \cdot g}$$
+
+Wobei:
+- $I_{\text{sp}}$ = Spezifischer Impuls [s]
+- $F$ = Schub [N]  
+- $\dot{m}$ = Massenstrom [kg/s]
+- $g$ = Standardfallbeschleunigung (9,81 m/s²)
+- $\text{TWR}$ = Schub-Gewichts-Verhältnis [-]
+- $m$ = Triebwerksmasse [kg]
+
+
+### Mehrere Rückgabewerte
+
+```python
+def triebwerk_analyse(schub_newton, treibstoff_verbrauch_kg_s):
+    spezifischer_impuls = schub_newton / (treibstoff_verbrauch_kg_s * 9.81)
+    triebwerk_masse = 1000  # kg
+    schub_gewichts_verhaeltnis = schub_newton / (triebwerk_masse * 9.81)
+    return spezifischer_impuls, schub_gewichts_verhaeltnis
+
+isp, twr = triebwerk_analyse(2200000, 700)
+print(f"Spez. Impuls: {isp:.0f}s, Schub/Gewicht: {twr:.1f}")
+```
+
+Mehr zu „Tupeln“ (`x, y`) in Kapitel 5 (Datenstrukturen)!
+
+
+### Standardwerte für Parameter
+
+```python
+def mission_planung(ziel, startdatum="TBD", crew_groesse=3, notfall_backup=True):
+    print(f"🚀 Mission zum {ziel}")
+    print(f"Start: {startdatum}")
+    print(f"Crew: {crew_groesse} Astronauten")
+    if notfall_backup:
+        print("✅ Notfall-Backup-Systeme aktiv")
+        
+# Verschiedene Missionen:
+mission_planung("Mond")
+mission_planung("Mars", "2026-07-15")
+mission_planung("ISS", crew_groesse=6)
+mission_planung("Europa", startdatum="2030-01-01", notfall_backup=False)
+```
+
+### Lokale vs. Globale Variablen
+```python
+# Globale Variable
+temperatur = 20  # °C
+
+def berechne_luftdichte(hoehe_m):
+    # Lokale Variable (nur in der Funktion sichtbar)
+    temperatur = -50  # °C in der Stratosphäre
+    # Diese lokale Variable "überdeckt" die globale
+    dichte = 1.225 * (1 - 0.0065 * hoehe_m / 288.15) ** 4.256
+    return dichte
+
+print(f"Bodentemperatur: {temperatur}°C")  # 20°C (global)
+
+luftdichte = berechne_luftdichte(10000)
+print(f"Luftdichte in 10km Höhe: {luftdichte:.3f} kg/m³")
+
+print(f"Nach Funktionsaufruf: {temperatur}°C")  # Immer noch 20°C!
+```
+
+
+### Funktionen mit Verzweigungen
+
+```python
+def startfreigabe_pruefen(treibstoff_prozent, wetter, crew_bereit, systeme_ok):
+    if treibstoff_prozent < 95:
+        return False, "Treibstoff unzureichend"
+    elif wetter != "gut":
+        return False, f"Wetter ungünstig: {wetter}"
+    elif not crew_bereit:
+        return False, "Crew nicht bereit"
+    elif not systeme_ok:
+        return False, "Systeme nicht nominal"
+    else:
+        return True, "🚀 Startfreigabe erteilt!"
+
+# Verschiedene Szenarien testen:
+freigabe, grund = startfreigabe_pruefen(98, "gut", True, True)
+print(f"Freigabe: {freigabe} - {grund}")
+
+freigabe, grund = startfreigabe_pruefen(90, "gut", True, True)
+print(f"Freigabe: {freigabe} - {grund}")
+```
+### Kompakte Startfreigabe-Funktion
+
+```python
+def schnelle_startpruefung(treibstoff, wetter, crew, systeme):
+    return (treibstoff >= 95 and wetter == "gut" and 
+            crew and systeme)
+
+# Verschiedene Raketen einzeln prüfen:
+falcon_heavy = schnelle_startpruefung(98, "gut", True, True)
+sls = schnelle_startpruefung(92, "gut", True, True)
+starship = schnelle_startpruefung(99, "windig", True, True)
+
+print(f"Falcon Heavy: {'✅ GO' if falcon_heavy else '❌ NO-GO'}")
+print(f"SLS: {'✅ GO' if sls else '❌ NO-GO'}")
+print(f"Starship: {'✅ GO' if starship else '❌ NO-GO'}")
+```
+
