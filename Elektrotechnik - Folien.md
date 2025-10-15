@@ -750,6 +750,9 @@ Relative Permittivität (*relative permittivity*) = ~~Relative Dielektrizitätsk
 
 1. Stromstärke und Stromdichte
 2. Widerstand und Ohm’sches Gesetz
+3. [Stromkreisberechnungen](#stromkreisberechnungen) (Kirchhoff’sche Regeln)
+4. Zweipoltheorie
+5. Arbeit & Leistung
 
 
 ### Elektrischer Strom (*electric current*)
@@ -873,3 +876,72 @@ Typische Werte für einige Leitermaterialien bei 20°C:
 | Kupfer         | 0,0176                               | 56,8                    | 3,9 · 10<sup>−3</sup>                |
 | Aluminium      | 0,0278                               | 36                      | 3,7 · 10<sup>−3</sup>                |
 | Messing        | 0,075                                | 13,3                    | 1,6 · 10<sup>−3</sup>                |
+
+### Stromkreisberechnungen
+
+1. Die Kirchhoff’schen Gesetze
+2. Zweipoltheorie
+3. Arbeit und Leistung im Gleichstromkreis
+
+### Knotenpunktregel (1. Kirchhoff’sches Gesetz)
+
+In einem Knotenpunkt kann weder Ladung gespeichert noch erzeugt werden. Die Summe aller zufließenden Ströme ist gleich der Summe aller abfließenden Ströme:
+
+$$\sum_{k} I_{k} = 0$$
+
+![bg right:22% 70%](https://upload.wikimedia.org/wikipedia/commons/5/51/Stromknoten.svg)
+
+
+
+### Maschenregel (2. Kirchhoff’sches Gesetz)
+
+Die Summe aller in einer Masche auftretenden Spannungen ist Null:
+
+$$\sum_{k} U_{k} = 0$$
+
+
+![bg right:42% 70%](https://upload.wikimedia.org/wikipedia/commons/4/41/Masche_und_Knoten.svg)
+
+### Reihenschaltung von Widerständen
+
+
+$$R_\text{ges} = R_1 + R_2 + R_3 + \dots + R_n = \sum_{i=1}^{n} R_i$$
+
+Spannungsteiler:
+
+$$\sum I_{zu} = \sum I_{ab}$$
+
+Oder mit Berücksichtigung der Vorzeichen:
+
+$$\sum_{k=1}^{n} I_k = 0$$
+
+![bg right:30% 70%](https://upload.wikimedia.org/wikipedia/commons/2/27/Reihenschaltung_Widerst%C3%A4nde.svg)
+
+### Spannungsteiler
+
+Bei einer Reihenschaltung teilt sich die Gesamtspannung im Verhältnis der Widerstände auf:
+
+$$I = \frac{U}{R_{ges}} = \frac{U_1}{R_1} = \frac{U_2}{R_2}$$
+
+![bg right:30% 70%](https://upload.wikimedia.org/wikipedia/commons/9/91/Spannungsteiler.svg)
+
+
+### Parallelschaltung von Widerständen
+
+Bei einer Parallelschaltung von Widerständen addieren sich die Leitwerte zum Gesamtleitwert:
+
+$$\frac{1}{R_{ges}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots + \frac{1}{R_n} = \sum_{i=1}^{n} \frac{1}{R_i}$$
+
+Oder mit Leitwerten:
+
+$$G_{ges} = G_1 + G_2 + \dots + G_n = \sum_{i=1}^{n} G_i$$
+
+![bg right:30% 70%](https://upload.wikimedia.org/wikipedia/commons/9/91/Spannungsteiler.svg)
+
+### Stromteilerregel
+
+Bei einer Parallelschaltung teilt sich der Gesamtstrom im umgekehrten Verhältnis der Widerstände bzw. im direkten Verhältnis der Leitwerte auf:
+
+$$\frac{I}{G_{ges}} = \frac{I_1}{G_1} = \frac{I_2}{G_2}= \dots = \frac{I_n}{G_n}$$
+
+![bg right:30% 50%](https://upload.wikimedia.org/wikipedia/commons/e/e5/Stromteiler-allgemein.svg)
