@@ -333,15 +333,6 @@ print(bool("0"))
 ```
 
 
-```python
-print(bool([]))
-```
-
-
-```python
-print(bool([0]))
-```
-
 
 ### Vergleichsoperatoren: Chaining
 
@@ -360,32 +351,30 @@ print(10 < x < 20)
 print(1 < x > 3)
 ```
 
-
-### Identität vs. Gleichheit
+### Logische Operatoren
 
 ```python
-a = [1, 2, 3]
-b = [1, 2, 3]
-print(a == b)
+print(True and False)
+``` 
+
+```python
+print(True or False)
 ```
 
-
 ```python
-print(a is b)
+print(not True)
 ```
 
-
 ```python
-x = 256
-y = 256
-print(x is y)
+print(not False)
 ```
 
+```python
+print(not 0)
+```
 
 ```python
-x = 257
-y = 257
-print(x is y)
+print(not "")
 ```
 
 
@@ -457,27 +446,6 @@ print(1e-325)
 ```
 
 
-### NaN und Infinity
-
-```python
-print(float('inf') + 1)
-```
-
-
-```python
-print(float('inf') == float('inf'))
-```
-
-
-```python
-nan = float('nan')
-print(nan == nan)
-```
-
-
-```python
-print(nan != nan)
-```
 ### Strings
 
 ```python
@@ -493,72 +461,6 @@ String"""
 print(triple)
 ```
 
-### String Indizierung & „Slicing“
-
-```python
-# Indexzugriff
-text = "Python"
-print(text[0])
-```
-
-```python
-print(text[-1])
-```
-
-```python
-print(text[2:5])
-```
-
-
-### Strings: *immutability*
-
-Strings sind unveränderlich (*immutable*)
-
-```python
-s = "Hallo"
-s[0] = "h"
-```
-
-
-```python
-s = "Python"
-original_id = id(s)
-s += " ist toll"
-print(id(s) == original_id)
-```
-
-
-
-### String Basics: Methoden
-
-```python
-text = "  Python Programmierung  "
-print(text.upper())
-```
-
-```python
-print(text.lower())
-```
-
-```python
-print(text.strip())
-```
-
-```python
-print(text.replace("Python", "Java"))
-```
-
-### Strings Aufteilen & Verbinden
-
-```python
-# Aufteilen und Verbinden
-words = "Python ist toll".split()
-print(words)
-```
-
-```python
-print("-".join(words))
-```
 
 ### Strings und Unicode: Emoji
 
@@ -625,20 +527,6 @@ percent = 0.1234
 print(f"{percent:.1%}")
 ```
 
-
-### f-String Besonderheiten
-
-```python
-name = "World"
-greeting = "Hello"
-print(f"{greeting} {name}")
-```
-
-
-```python
-name = "Python"
-print(f"{{{name}}}")
-```
 
 ### Aufgabe: Persönlicher Datenrechner
 
