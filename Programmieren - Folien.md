@@ -355,7 +355,7 @@ print(1 < x > 3)
 
 ```python
 print(True and False)
-``` 
+```
 
 ```python
 print(True or False)
@@ -863,3 +863,124 @@ print(f"SLS: {'✅ GO' if sls else '❌ NO-GO'}")
 print(f"Starship: {'✅ GO' if starship else '❌ NO-GO'}")
 ```
 
+### Aufgabe: Mitternachtsformel
+
+Schreibe eine Funktion `mitternachtsformel(a, b, c)`, die die Lösungen der quadratischen Gleichung
+
+$$ax^2 + bx + c = 0$$
+
+berechnet. Verwende die Mitternachtsformel:
+
+$$x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+Die Funktion soll drei Rückgabewerte haben:
+1. Anzahl der Lösungen (0, 1 oder 2)
+2. Erste Lösung (oder `None`, wenn keine Lösung)
+3. Zweite Lösung (oder `None`, wenn keine Lösung)
+
+
+### Warum Module?
+
+**Problem:** Python hat nur begrenzte eingebaute Funktionen
+- Keine Quadratwurzel-Funktion
+- Keine trigonometrischen Funktionen  
+- Keine Zufallszahlen
+- Keine erweiterten mathematischen Konstanten
+
+**Lösung:** Die Python-Standardbibliothek
+- Über 200 fertige Module
+- Getestet und optimiert
+- Sofort verfügbar ohne Installation
+
+### Module importieren
+
+```python
+# Ganzes Modul importieren
+import math
+print(math.sqrt(16))
+print(math.pi)
+```
+
+```python
+# Spezifische Funktionen importieren
+from math import sqrt, pi, sin
+print(sqrt(16))
+print(sin(pi/2))
+```
+
+```python
+# Alle Funktionen importieren (nicht empfohlen!)
+from math import *
+print(cos(0))
+```
+
+### Trigonometrische Funktionen
+
+```python
+import math
+
+# Alle Winkel in Radiant!
+winkel_rad = math.pi / 4  # 45 Grad
+print(f"sin(45°) = {math.sin(winkel_rad):.3f}")
+print(f"cos(45°) = {math.cos(winkel_rad):.3f}")
+print(f"tan(45°) = {math.tan(winkel_rad):.3f}")
+```
+
+```python
+# Umrechnung Grad ↔ Radiant
+grad = 90
+rad = math.radians(grad)
+print(f"{grad}° = {rad:.3f} rad")
+
+zurück = math.degrees(rad)
+print(f"{rad:.3f} rad = {zurück}°")
+```
+
+### Das random-Modul
+
+```python
+import random
+
+# Zufallszahlen
+print(random.random())          # Float zwischen 0.0 und 1.0
+print(random.randint(1, 6))     # Integer zwischen 1 und 6 (Würfel)
+print(random.uniform(10, 20))   # Float zwischen 10 und 20
+```
+
+
+
+### Das datetime-Modul
+
+```python
+import datetime
+
+# Aktuelle Zeit
+jetzt = datetime.datetime.now()
+print(f"Jetzt: {jetzt}")
+```
+
+```python
+# Spezifisches Datum erstellen
+weihnachten = datetime.datetime(2025, 12, 24, 18, 0)
+print(f"Heiligabend: {weihnachten}")
+```
+
+```python
+# Zeitspanne berechnen
+bis_weihnachten = weihnachten - jetzt
+print(f"Noch {bis_weihnachten.days} Tage bis Weihnachten 🎄")
+```
+
+
+### Häufige Standardbibliothek-Module
+
+| Modul | Zweck | Beispiele |
+|-------|-------|-----------|
+| `math` | Mathematische Funktionen | `sqrt()`, `sin()`, `pi` |
+| `random` | Zufallszahlen | `randint()`, `choice()` |
+| `datetime` | Datum und Zeit | `now()`, `strftime()` |
+| `os` | Betriebssystem | Dateipfade, Umgebung |
+| `sys` | Python-System | Argumente, Version |
+| `json` | JSON-Daten | Laden/Speichern |
+| `urllib` | Web-Requests | HTTP-Anfragen |
+| `csv` | CSV-Dateien | Tabellendaten |
