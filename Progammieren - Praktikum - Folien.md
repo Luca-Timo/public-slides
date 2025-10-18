@@ -84,7 +84,7 @@ else:
 ```
 
 
-### Aufgabe: imperiale Einheiten
+### Aufgabe 1: imperiale Einheiten
 
 Schreiben Sie ein Programm, mit dem die in der Luftfahrt verbreiteten imperialen Einheiten Fuß, Seemeilen und Knoten in das metrische System (Meter, m/s) umgerechnet werden können.
 
@@ -96,7 +96,7 @@ Das Programm soll zunächst Fragen, welche der drei Einheiten umgerechnet werden
 - 1 NM = 1852 m
 - 1 kn = 1 NM/h
 
-### Aufgabe: Schwebedauer
+### Aufgabe 2: Schwebedauer
 
 Ein Multicopter benötigt im Schwebeflug eine Leistung von
 
@@ -107,9 +107,28 @@ $\kappa$: dimensionlose Effizienz < 1, $T=mg$: Schubkraft, $\rho$:  Luftdichte, 
 
 $g=9{,}81 \frac{\text{m}}{\text{s}^2}$, $\rho_\text{München}\approx1{,}2 \frac{\text{kg}}{\text{m}^3}$
 
-Der Multicopter hat einen Akku mit der Kapazität 3 Ah und einer durchschnittlichen Spannung von 11.1 V.
+Der Multicopter hat einen Akku mit der Kapazität 3 Ah und einer durchschnittlichen Spannung von 11.1 V.
 
 Schreiben Sie ein Programm, das die Schwebedauer des Multicopters in Abhängigkeit von der Masse $m$, der Anzahl $n$ und dem Durchmesser $2r$ der Rotoren berechnet. Nehmen sie $\kappa=0{,}5$ an.
 
 ![bg right:30%](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Quadcopter_Drone_in_flight.jpg/1024px-Quadcopter_Drone_in_flight.jpg)
 
+### Aufgabe 3: Gleitstreckenberechnung
+
+- Schreiben Sie eine Funktion, die die maximale Gleitstrecke eines Segelflugzeugs berechnet. Die Funktion soll die Starthöhe in Metern, den Höhenverlust pro Kilometer Flugstrecke in Metern und die nötige Höhenreserve in Metern als Eingabeparameter erhalten und die maximale Gleitstrecke in Kilometern zurückgeben.
+- Verwenden Sie eine separate Funktion zur Ausgabe der Gleitstrecke in einem lesbaren Format (z.B. "Die maximale Gleitstrecke beträgt X km").
+- Schreiben Sie eine Hauptfunktion `main()`, die den Benutzer nach der Starthöhe, dem Höhenverlust und der Höhenreserve fragt, die Funktionen aufruft und die Gleitstrecke ausgibt.
+
+![bg right:30%](https://upload.wikimedia.org/wikipedia/commons/7/79/DG1000_glider_crop.jpg)
+
+### Zusatzaufgabe: Test-Skript
+
+- Schreiben Sie ein Test-Skript, das die Funktion zur Berechnung der Gleitstrecke mit verschiedenen Eingabewerten aufruft und die Ergebnisse überprüft.
+- Verwenden Sie das `assert`-Statement, um sicherzustellen, dass die berechneten Gleitstrecken den erwarteten Werten entsprechen.
+
+Beispiel:
+
+```python
+def test_negative_starthoehe():
+    assert berechne_gleitstrecke(-1, 1, 1) == 0
+```
