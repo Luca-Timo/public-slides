@@ -663,7 +663,7 @@ print(f"Strecke: {distance_nm} nm = {distance_m:.0f} m")
 
 Probleme: Code-Duplikation, Fehleranfällig, schwer zu ändern
 
-### Funktionen: Die elegante Lösung
+### Funktionen: Kapselung (*encapsulation*) der Funktionalität
 
 ```python
 def fuss_zu_meter(fuss):
@@ -862,6 +862,45 @@ print(f"Falcon Heavy: {'✅ GO' if falcon_heavy else '❌ NO-GO'}")
 print(f"SLS: {'✅ GO' if sls else '❌ NO-GO'}")
 print(f"Starship: {'✅ GO' if starship else '❌ NO-GO'}")
 ```
+
+### Reine Funktionen und Nebeneffekte
+
+**Reine Funktionen** haben zwei wichtige Eigenschaften:
+1. **Determinismus**: Gleiche Eingabe → Gleiche Ausgabe
+2. **Keine Nebeneffekte**: Ändern nichts außerhalb der Funktion
+
+```python
+# Reine Funktion
+def addiere(a, b):
+    return a + b
+
+# Unreine Funktion (Nebeneffekt: print)
+def addiere_mit_ausgabe(a, b):
+    ergebnis = a + b
+    print(f"Ergebnis: {ergebnis}")  # Nebeneffekt!
+    return ergebnis
+```
+
+Weitere Beispiele für Nebeneffekte: Ändern globaler Variablen, Schreiben in Dateien, etc.
+
+### Vorteile reiner Funktionen
+
+- **Testbarkeit**: Einfach zu testen (vorhersagbare Ausgabe)
+- **Debugging**: Fehler leichter zu finden
+- **Wiederverwendbarkeit**: Funktionieren in jedem Kontext
+- **Parallelisierung**: Können sicher parallel ausgeführt werden
+
+```python
+# Reine Funktion - immer testbar
+def celsius_zu_fahrenheit(celsius):
+    return celsius * 9/5 + 32
+
+# Test ist einfach und zuverlässig
+assert celsius_zu_fahrenheit(0) == 32
+assert celsius_zu_fahrenheit(100) == 212
+```
+
+**Faustregel**: Schreiben Sie so viele Funktionen wie möglich als reine Funktionen!
 
 ### Aufgabe: Mitternachtsformel
 
