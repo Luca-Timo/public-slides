@@ -642,6 +642,21 @@ Schreibe ein Python-Programm um zu entscheiden, ob eine Rakete starten darf.
 
 ## Funktionen
 
+### Kapselung von Komplexität
+
+&nbsp;
+
+> The greatest limitation in writing software is our ability to understand the systems we are creating.
+>
+> …
+>
+>There are two general approaches to fighting complexity … The first is to eliminate complexity by making code **simpler and more obvious**. … The second is to **encapsulate it**, so that programmers can work on a system without being exposed to all of its complexity at once.
+
+&nbsp;
+
+John Ousterhout, “A Philosophy of Software Design”
+
+
 ### Warum Funktionen? 
 
 Das DRY-Prinzip: **"Don't Repeat Yourself"**
@@ -755,32 +770,17 @@ print(f"ISS Orbitalgeschwindigkeit: {v_orbital:.2f} km/s")
 ```
 
 
-### Formeln für die Triebwerksanalyse
-
-$$I_{\text{sp}} = \frac{F}{\dot{m} \cdot g}$$
-
-$$\text{TWR} = \frac{F}{m \cdot g}$$
-
-Wobei:
-- $I_{\text{sp}}$ = Spezifischer Impuls [s]
-- $F$ = Schub [N]  
-- $\dot{m}$ = Massenstrom [kg/s]
-- $g$ = Standardfallbeschleunigung (9,81 m/s²)
-- $\text{TWR}$ = Schub-Gewichts-Verhältnis [-]
-- $m$ = Triebwerksmasse [kg]
-
-
 ### Mehrere Rückgabewerte
 
 ```python
 def triebwerk_analyse(schub_newton, treibstoff_verbrauch_kg_s):
-    spezifischer_impuls = schub_newton / (treibstoff_verbrauch_kg_s * 9.81)
+    spezifischer_impuls = schub_newton / treibstoff_verbrauch_kg_s
     triebwerk_masse = 1000  # kg
     schub_gewichts_verhaeltnis = schub_newton / (triebwerk_masse * 9.81)
     return spezifischer_impuls, schub_gewichts_verhaeltnis
 
 isp, twr = triebwerk_analyse(2200000, 700)
-print(f"Spez. Impuls: {isp:.0f}s, Schub/Gewicht: {twr:.1f}")
+print(f"Spez. Impuls: {isp:.0f} N⋅s/kg, Schub/Gewicht: {twr:.1f}")
 ```
 
 Mehr zu „Tupeln“ (`x, y`) in Kapitel 5 (Datenstrukturen)!
