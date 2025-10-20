@@ -698,6 +698,8 @@ Eigenschaften:
 
 $$U_{\text{ges}} = U_1 = U_2 = \dots = U_n$$
 
+![bg 100% right:50%](https://upload.wikimedia.org/wikipedia/commons/e/ee/Kondensator_C1_plus_C2.svg)
+
 ### Reihenschaltung von Kondensatoren
 
 Bei der Reihenschaltung von Kondensatoren addieren sich die Kehrwerte der Kapazitäten:
@@ -787,7 +789,10 @@ Strom ist der gerichtete Fluss von elektrischer Ladung
 
 ### Metalle im elektrischen Feld
 
-Erfährt das Elektronengas ein elektrisches Feld, bewegen sich die Elektronen mit einer mittleren Geschwindigkeit $\vec{v}_d$ (Driftgeschwindigkeit) *entgegen* der Feldrichtung $\vec{v}_d = \vec{J}/\rho$, $\rho =- ne$.
+Klassisches Bild: erfährt das Elektronengas ein elektrisches Feld, werden  die Elektronen beschleunigt, nach kurzer Zeit aber durch Stöße mit dem Metallgitter wieder abgebremst. Im Mittel ergibt sich dadurch eine konstante mittleren Geschwindigkeit $\vec{v}_d$, die Driftgeschwindigkeit. Sie geht *entgegen* der Feldrichtung $\vec{v}_d = \vec{J}/\rho$, $\rho =- ne$.
+
+
+![bg right:35% 80%](https://physikbuch.schule/media/drude-model.svg)
 
 ### Zahlenbeispiel: Driftgeschwindigkeit im Kupferdraht
 
@@ -809,6 +814,8 @@ $$\vec{J} = \sigma \cdot \vec{E}$$
 
 = Ohm’sches Gesetz (*Ohm’s law*)
 
+Achtung: die proportionale Beziehung gilt nur für *lineare Leiter* (z.B. Metalle bei konstanter Temperatur)
+
 ### Ohm’sches Gesetz im linearen Leiter
 
 $$\vec{J} = \sigma \cdot \vec{E}$$
@@ -823,9 +830,11 @@ $$I = J \cdot A = \sigma \cdot E \cdot A = \sigma \cdot \frac{U}{l} \cdot A = \f
 
 - Elektrischer Widerstand $R = \frac{l}{\sigma \cdot A}$ (*electric resistance*)
 
+![bg right:30% 90%](https://physikbuch.schule/media/resistivity-geometry.svg)
+
 ## Widerstand und Leitwert
 
-Der elektrische Widerstand $R$ ist definiert durch das Ohmsche Gesetz:
+Der elektrische Widerstand $R$ ist definiert durch das Ohm’sche Gesetz:
 
 $$R = \frac{U}{I}$$
 
@@ -876,6 +885,9 @@ Typische Werte für einige Leitermaterialien bei 20°C:
 | Kupfer         | 0,0176                               | 56,8                    | 3,9 · 10<sup>−3</sup>                |
 | Aluminium      | 0,0278                               | 36                      | 3,7 · 10<sup>−3</sup>                |
 | Messing        | 0,075                                | 13,3                    | 1,6 · 10<sup>−3</sup>                |
+
+$R(T) = R(T_0) \cdot [1 + \alpha \cdot (T - T_0)]$
+
 
 ### Stromkreisberechnungen
 
