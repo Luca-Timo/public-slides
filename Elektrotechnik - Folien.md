@@ -747,6 +747,63 @@ Elektrische Feldkonstante (*electric constant*) = Permittivität des Vakuums (*v
 [Absolute] Permittivität (*[absolute] permittivity*) = ~~Dielektrizitätskonstante~~ | $\varepsilon$ | $[\varepsilon] = \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}$
 Relative Permittivität (*relative permittivity*) = ~~Relative Dielektrizitätskonstante~~  | $\varepsilon_r = \frac{\varepsilon}{\varepsilon_0}$ | dimensionslos
 
+## Quiz: Das Elektrische Feld
+
+### Warum spielt die Gravitation im atomaren Maßstab praktisch keine Rolle?
+- A) Weil Protonen und Elektronen keine Masse besitzen  
+- B) Weil die elektromagnetischen Kräfte viel stärker sind als die Gravitationskräfte  
+- C) Weil Gravitation nur zwischen Himmelskörpern wirkt  
+- D) Weil sie durch Quantenmechanik verboten wird  
+
+### Warum sind Atome trotz geladener Bestandteile nach außen elektrisch neutral?
+- A) Weil sich Protonen und Neutronen ausgleichen  
+- B) Weil sich die gleiche Anzahl an Protonen (positiv) und Elektronen (negativ) kompensiert  
+- C) Weil Elektronen keine Ladung haben  
+- D) Weil neutrale Teilchen überwiegen  
+
+### Was bedeutet, dass elektrische Ladung „quantisiert“ ist?
+- A) Ladung existiert nur bei Quarks  
+- B) Ladung tritt nur in ganzzahligen Vielfachen einer kleinsten Einheit auf  
+- C) Ladung kann beliebige Werte annehmen  
+- D) Ladung hängt vom Beobachter ab  
+
+### Was passiert mit der Kraft zwischen zwei Punktladungen nach dem Coulomb-Gesetz, wenn der Abstand halbiert wird?
+- A) Sie halbiert sich  
+- B) Sie vervierfacht sich  
+- C) Sie verdoppelt sich  
+- D) Sie bleibt gleich  
+
+### Was zeigt die Richtung einer elektrischen Feldlinie an?
+- A) Die Bewegung einer negativen Probeladung  
+- B) Die Richtung der Kraft auf eine positive Probeladung  
+- C) Die Richtung der Polarisation  
+- D) Die Richtung minimaler Energie  
+
+### Wann ist der Einsatz des Gaußschen Gesetzes besonders sinnvoll?
+- A) Bei beliebigen Ladungsverteilungen  
+- B) Bei jeder einzelnen Punktladung  
+- C) Bei Systemen mit hoher Symmetrie (z. B. Kugel, Zylinder, Ebene)  
+- D) Nur bei negativ geladenen Objekten  
+
+### Warum schwächt ein Dielektrikum das elektrische Feld?
+- A) Weil es freie Elektronen enthält  
+- B) Weil es durch Polarisation ein Gegenfeld erzeugt  
+- C) Weil es Ladung vollständig abschirmt  
+- D) Weil es die Permittivität verringert  
+
+### Warum ist die elektrische Arbeit beim Bewegen einer Ladung im elektrostatischen Feld wegunabhängig?
+- A) Weil das Feld nur innerhalb von Leitern existiert  
+- B) Weil Feldlinien immer geschlossen sind  
+- C) Weil es sich um ein Potentialfeld handelt 
+- D) Weil die Kraft immer konstant ist  
+
+### Was beschreibt das elektrische Potential physikalisch?
+- A) Die Anzahl der Feldlinien  
+- B) Die potenzielle Energie pro Ladung  
+- C) Die Feldstärke unabhängig vom Ort  
+- D) Die Stärke der Polarisation  
+
+
 
 ## Gleichstrom
 
@@ -832,7 +889,7 @@ $$I = J \cdot A = \sigma \cdot E \cdot A = \sigma \cdot \frac{U}{l} \cdot A = \f
 
 ![bg right:30% 90%](https://physikbuch.schule/media/resistivity-geometry.svg)
 
-## Widerstand und Leitwert
+### Widerstand und Leitwert
 
 Der elektrische Widerstand $R$ ist definiert durch das Ohm’sche Gesetz:
 
@@ -957,3 +1014,38 @@ Bei einer Parallelschaltung teilt sich der Gesamtstrom im umgekehrten Verhältni
 $$\frac{I}{G_{ges}} = \frac{I_1}{G_1} = \frac{I_2}{G_2}= \dots = \frac{I_n}{G_n}$$
 
 ![bg right:30% 50%](https://upload.wikimedia.org/wikipedia/commons/e/e5/Stromteiler-allgemein.svg)
+
+Natürlich! Hier ist das Markdown-Quiz **ohne Frage 4**:
+
+
+
+### 1. Was beschreibt die Stromdichte $\vec{J}$?
+
+A) Die Gesamtladung, die pro Zeit durch eine Fläche fließt
+B) Den gerichteten Fluss elektrischer Ladung pro Fläche
+C) Die Geschwindigkeit elektrischer Ladungsträger
+D) Die Spannung pro Leiterlänge
+
+
+### 2. In welche Richtung zeigt die Stromdichte $\vec{J}$?
+
+A) In Richtung der Bewegung negativer Ladungsträger
+B) In Richtung der Energieausbreitung
+C) Immer entgegengesetzt zur Feldrichtung
+D) In Richtung der Bewegung positiver Ladungsträger
+
+
+### 3. Was versteht man unter der Driftgeschwindigkeit $\vec{v}_d$ von Elektronen im Metall?
+
+A) Die Geschwindigkeit einzelner Elektronen zwischen zwei Stößen
+B) Die mittlere Geschwindigkeit der Elektronen in Bewegungsrichtung bei angelegtem Feld
+C) Die Lichtgeschwindigkeit im Leiter
+D) Die Geschwindigkeit der Potentialänderung
+
+
+### 4. Wie verändert sich der Widerstand eines metallischen Leiters bei steigender Temperatur?
+
+A) Er nimmt ab
+B) Er bleibt konstant
+C) Er nimmt zu
+D) Er wird negativ
