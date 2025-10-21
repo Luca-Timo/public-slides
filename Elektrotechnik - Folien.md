@@ -313,6 +313,7 @@ $$\vec{E}(\vec r) = \frac{Q}{4 \cdot \pi \cdot \varepsilon_0 \cdot r^2} \cdot \f
 ### Superpositionsprinzip
 
 Das elektrische Feld mehrerer (diskreter) Ladungen ist die Vektorsumme der Felder der einzelnen Ladungen
+
 $$\vec{E}(\vec{r}) = \sum_{i} \vec{E}_i(\vec{r})$$
 $$= \sum_{i} \frac{Q_i}{4 \pi \varepsilon_0 \cdot |\vec{r}-\vec{r}_i|^2} \cdot \frac{\vec{r}-\vec{r}_i}{|\vec{r}-\vec{r}_i|}$$
 
