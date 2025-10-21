@@ -116,7 +116,7 @@ Schreiben Sie ein Programm, das die Schwebedauer des Multicopters in Abhängigke
 ### Aufgabe 3: Gleitstreckenberechnung
 
 - Schreiben Sie eine Funktion, die die maximale Gleitstrecke eines Segelflugzeugs berechnet. Die Funktion soll die Starthöhe in Metern, den Höhenverlust pro Kilometer Flugstrecke in Metern und die nötige Höhenreserve in Metern als Eingabeparameter erhalten und die maximale Gleitstrecke in Kilometern zurückgeben.
-- Verwenden Sie eine separate Funktion zur Ausgabe der Gleitstrecke in einem lesbaren Format (z.B. "Die maximale Gleitstrecke beträgt X km").
+- Verwenden Sie eine separate Funktion zur Ausgabe der Gleitstrecke in einem lesbaren Format (z.B. "Die maximale Gleitstrecke beträgt X km") inklusive sinnvoller Rundung.
 - Schreiben Sie eine Hauptfunktion `main()`, die den Benutzer nach der Starthöhe, dem Höhenverlust und der Höhenreserve fragt, die Funktionen aufruft und die Gleitstrecke ausgibt.
 
 ![bg right:30%](https://upload.wikimedia.org/wikipedia/commons/7/79/DG1000_glider_crop.jpg)
@@ -132,3 +132,9 @@ Beispiel:
 def test_negative_starthoehe():
     assert berechne_gleitstrecke(-1, 1, 1) == 0
 ```
+
+### Zusatzaufgabe: Gleitwinkel
+
+- Erweitern Sie die Funktion zur Berechnung der Gleitstrecke, um zusätzlich den Gleitwinkel in Grad zu berechnen und zurückzugeben.
+- Der Gleitwinkel $\theta$ kann mit der Formel $\tan(\theta) = \frac{\text{Höhenverlust}}{\text{Flugstrecke}}$ berechnet werden.
+- Passen Sie die Ausgabe-Funktion an, um auch den Gleitwinkel auszugeben.
