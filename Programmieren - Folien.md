@@ -27,7 +27,7 @@ David Straub
 1. Einführung
 2. [Grundlagen: Variablen, Datentypen, Verzweigungen](#grundlagen)
 3. [Funktionen](#funktionen)
-4. Schleifen
+4. [Schleifen](#schleifen)
 5. Datenstrukturen
 6. Module & Bibliotheken
 7. Klassen
@@ -917,109 +917,221 @@ Die Funktion soll drei Rückgabewerte haben:
 2. Erste Lösung (oder `None`, wenn keine Lösung)
 3. Zweite Lösung (oder `None`, wenn keine Lösung)
 
+## Schleifen
 
-### Warum Module?
+### Wozu Schleifen?
 
-**Problem:** Python hat nur begrenzte eingebaute Funktionen
-- Keine Quadratwurzel-Funktion
-- Keine trigonometrischen Funktionen  
-- Keine Zufallszahlen
-- Keine erweiterten mathematischen Konstanten
+- Wiederholung von Anweisungen automatisieren
+- Daten sequenziell verarbeiten (Listen, Strings, Dateien)
+- Simulationen und iterative Verfahren umsetzen
 
-**Lösung:** Die Python-Standardbibliothek
-- Über 200 fertige Module
-- Getestet und optimiert
-- Sofort verfügbar ohne Installation
+Zwei Typen von Schleifen:
+1. `while`-Schleifen: Wiederholung solange Bedingung wahr ist
+2. `for`-Schleifen: Wiederholung über eine feste Anzahl oder Sammlung
 
-### Module importieren
+## `while`-Schleifen
+
+
+**Was ist eine `while`-Schleife?**
+- Wiederholt Code solange eine Bedingung wahr ist
+- Anzahl Wiederholungen ist vorher unbekannt
+- Prüft Bedingung vor jedem Durchlauf
+
+**Typische Anwendungsfälle:**
+- **Benutzereingaben**: Solange bis gültige Eingabe
+- **Konvergenz**: Bis gewünschte Genauigkeit erreicht
+- **Suche**: Bis Element gefunden oder Ende erreicht
+- **Simulation**: Bis Zielzustand oder Zeitlimit
+- **Datenverarbeitung**: Bis Datei/Stream zu Ende
+
+
+![bg right:40% 90%](https://i.postimg.cc/y8gTLNy6/Mermaid-Chart-Create-complex-visual-diagrams-with-text-2025-10-23-090839.png)
+
+### while: Grundform
 
 ```python
-# Ganzes Modul importieren
-import math
-print(math.sqrt(16))
-print(math.pi)
+i = 0
+while i < 3:
+    print(i)
+    i += 1
+```
+
+### Endlosschleife vermeiden
+
+```python
+# Schlechte Idee: i wird nie verändert → Endlosschleife
+i = 0
+while i < 3:
+    print(i)
+    # i += 1  # vergessen!
+```
+
+### while: Zählschleife (wenn Bedingungen flexibler sein sollen)
+
+```python
+schritte = 0
+energie = 10
+while energie > 0 and schritte < 5:
+    print(f"Schritt {schritte}: Energie = {energie}")
+    energie -= 3
+    schritte += 1
+```
+
+### Sentinel-Schleife (lesen bis Ende)
+
+```python
+zeile = input("Wert (leer beendet): ")
+while zeile != "":
+    print(f"Eingabe war: {zeile}")
+    zeile = input("Wert (leer beendet): ")
+```
+
+### Iteration bis Toleranz (Konvergenz)
+
+```python
+temp = 20.0
+ziel = 22.0
+schritt = 0.3
+iters = 0
+while abs(temp - ziel) > 0.1 and iters < 200:
+    temp += schritt
+    iters += 1
+print(f"Endtemperatur {temp:.1f}°C nach {iters} Schritten")
+```
+
+### `break` und `continue` mit `while`
+
+```python
+# Suche die erste ungerade Zahl > 15 unter den Zahlen 1–20
+nummer = 0
+gefunden = None
+while nummer <= 20:
+    nummer += 1
+    if nummer % 2 == 0:
+        continue  # überspringen (gerade Zahlen)
+    if nummer > 15:
+        gefunden = nummer
+        break     # abbrechen (erste ungerade > 15)
+    print(f"Prüfe: {nummer}")
+print(f"Gefunden: {gefunden}")
+```
+
+### Aufgabe: Geschwindigkeitsregelung
+
+Entwirf eine Regelung, die eine Geschwindigkeit `v` auf `v_target` bringt.
+
+- Start: $v_0$, Ziel: $v_\text{target}$, Proportionalfaktor ($0 < k ≤ 1$)
+- Aktualisierung pro Schritt: $v_{i+1} = v_i + k  (v_\text{target} - v_i)$
+- Stoppe, wenn $|v - v_\text{target}| < \varepsilon$ oder `max_steps` erreicht
+- Ausgabe: Anzahl Schritte und Endwert $v$
+
+
+## `for`-Schleifen
+
+- Wiederholen Code für jedes Element einer Sammlung
+- Anzahl Wiederholungen ist meist vorher bekannt
+- Durchlaufen sequenziell alle Elemente
+
+**Typische Anwendungsfälle:**
+- **Feste Anzahl Wiederholungen**: z.B. 10× etwas ausführen
+- **Berechnung über Sequenzen**: Summen, Mittelwerte, Transformationen
+- **Über Sammlungen iterieren**: Siehe Kapitel Datenstrukturen
+
+![bg right:40% 90%](https://i.postimg.cc/mgnTGm9M/Mermaid-Chart-Create-complex-visual-diagrams-with-text-2025-10-23-091355.png)
+
+### `for`: Wiederholungen mit `range()`
+
+```python
+for i in range(5):  # 0, 1, 2, 3, 4
+    print(f"Durchlauf {i}")
+```
+
+### `range()`: Integer-Folgen erzeugen
+
+```python
+for i in range(5):  # 0,1,2,3,4
+    print(i)
 ```
 
 ```python
-# Spezifische Funktionen importieren
-from math import sqrt, pi, sin
-print(sqrt(16))
-print(sin(pi/2))
+print(range(5))  # range ist ein spezieller Typ
+```
+
+### `range(start, stop)` und `range(start, stop, step)`
+
+```python
+for i in range(2, 7):  # 2,3,4,5,6
+    print(i)
 ```
 
 ```python
-# Alle Funktionen importieren (nicht empfohlen!)
-from math import *
-print(cos(0))
+for t in range(10, -1, -2):  # 10,8,6,4,2,0
+    print(t)
 ```
 
-### Trigonometrische Funktionen
+### Über Strings iterieren
 
 ```python
-import math
-
-# Alle Winkel in Radiant!
-winkel_rad = math.pi / 4  # 45 Grad
-print(f"sin(45°) = {math.sin(winkel_rad):.3f}")
-print(f"cos(45°) = {math.cos(winkel_rad):.3f}")
-print(f"tan(45°) = {math.tan(winkel_rad):.3f}")
+for ch in "ABCD":
+    print(ch)
 ```
 
 ```python
-# Umrechnung Grad ↔ Radiant
-grad = 90
-rad = math.radians(grad)
-print(f"{grad}° = {rad:.3f} rad")
-
-zurück = math.degrees(rad)
-print(f"{rad:.3f} rad = {zurück}°")
+wort = "NASA"
+for buchstabe in wort:
+    print(f"Buchstabe: {buchstabe}")
 ```
 
-### Das random-Modul
+### Anwendung: Zeichen zählen
 
 ```python
-import random
-
-# Zufallszahlen
-print(random.random())          # Float zwischen 0.0 und 1.0
-print(random.randint(1, 6))     # Integer zwischen 1 und 6 (Würfel)
-print(random.uniform(10, 20))   # Float zwischen 10 und 20
+text = "Programmieren"
+anzahl_e = 0
+for zeichen in text:
+    if zeichen == "e":
+        anzahl_e += 1
+print(f"Anzahl 'e': {anzahl_e}")
 ```
 
-
-
-### Das datetime-Modul
+### `break` und `continue` in `for`-Schleifen
 
 ```python
-import datetime
-
-# Aktuelle Zeit
-jetzt = datetime.datetime.now()
-print(f"Jetzt: {jetzt}")
+for zahl in range(1, 11):
+    if zahl % 3 == 0:
+        continue  # Überspringe Vielfache von 3
+    if zahl > 7:
+        break     # Stoppe bei Zahlen > 7
+    print(zahl)
 ```
+
+### Verschachtelte Schleifen: Multiplikationstabelle
 
 ```python
-# Spezifisches Datum erstellen
-weihnachten = datetime.datetime(2025, 12, 24, 18, 0)
-print(f"Heiligabend: {weihnachten}")
-```
-
-```python
-# Zeitspanne berechnen
-bis_weihnachten = weihnachten - jetzt
-print(f"Noch {bis_weihnachten.days} Tage bis Weihnachten 🎄")
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"{i} × {j} = {i*j}")
+    print("---")  # Trenner nach jeder Zeile
 ```
 
 
-### Häufige Standardbibliothek-Module
+### Aufgabe: Quersumme berechnen
 
-| Modul | Zweck | Beispiele |
-|-------|-------|-----------|
-| `math` | Mathematische Funktionen | `sqrt()`, `sin()`, `pi` |
-| `random` | Zufallszahlen | `randint()`, `choice()` |
-| `datetime` | Datum und Zeit | `now()`, `strftime()` |
-| `os` | Betriebssystem | Dateipfade, Umgebung |
-| `sys` | Python-System | Argumente, Version |
-| `json` | JSON-Daten | Laden/Speichern |
-| `urllib` | Web-Requests | HTTP-Anfragen |
-| `csv` | CSV-Dateien | Tabellendaten |
+Schreibe eine Funktion, die die Quersumme einer positiven Ganzzahl berechnet.
+
+- Wandle die Zahl in einen String um
+- Iteriere über alle Zeichen
+- Wandle jedes Zeichen zurück in `int` und addiere
+- Teste mit verschiedenen Zahlen (z.B. 123 → 6, 9876 → 30)
+
+### Aufgabe: Batterie-Lade-Simulation
+
+- Batterie startet bei 3.0 V, Ziel: 4.2 V, Sicherheitslimit: 4.5 V  
+- Spannung steigt pro Zyklus um 0.1 V, max. 50 Zyklen  
+
+**Aufgaben:**  
+1. Simuliere den Ladeprozess mit einer Schleife
+2. Stoppe, wenn Zielspannung, Sicherheislimit oder max. Zyklen erreicht sind
+3. Gib nur alle 5 Zyklen den Status aus
+4. Am Ende: Endspannung und Anzahl Zyklen ausgeben  
+
+![bg right:30% 80%](https://upload.wikimedia.org/wikipedia/commons/d/d7/Oxygen480-status-battery-charging-080.svg)
