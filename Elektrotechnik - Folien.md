@@ -904,9 +904,22 @@ $$G = \frac{1}{R} = \frac{I}{U}$$
 
 Einheit: $[G] = \frac{\text{A}}{\text{V}} = \text{S}$ (Siemens)
 
+### Materialeigenschaften vs. Bauteilgrößen
+
+**Materialeigenschaften** (intensiv, unabhängig von Geometrie):
+- **Spezifischer Widerstand** $\rho$: Widerstand pro Längeneinheit bei Einheitsquerschnitt
+- **Leitfähigkeit** $\sigma = \frac{1}{\rho}$: Leitfähigkeit des Materials
+
+**Bauteilgrößen** (extensiv, abhängig von Geometrie):
+- **Widerstand** $R = \rho \frac{l}{A}$: Widerstand eines konkreten Leiters
+- **Leitwert** $G = \frac{1}{R} = \sigma \frac{A}{l}$: Leitwert eines konkreten Leiters
+
+**Beispiel:** Kupfer hat immer die gleiche Leitfähigkeit $\sigma_{\text{Cu}} = 58 \text{ MS/m}$, aber ein dickeres Kabel hat einen kleineren Widerstand $R$.
+
+![bg right:20% 100%](https://physikbuch.schule/media/resistivity-geometry.svg)
+
 
 ### Übersicht der Größen im linearen Leiter
-
 
 Größe | Definition | Einheit | Name
 --- | --- | --- | ---
@@ -921,7 +934,9 @@ Leitfähigkeit (*conductivity*) | $\sigma = \frac{1}{\rho}$ | $[\sigma] = \text{
 
 ### Temperaturabhängigkeit des Widerstands
 
-Bei den meisten Materialien ändert sich der Widerstand mit der Temperatur:
+Bei den meisten Materialien ändert sich der Widerstand mit der Temperatur.
+
+Kleinsignalverhalten (lineare Näherung):
 
 $$R(T) = R(T_0) \cdot [1 + \alpha \cdot (T - T_0)]$$
 
@@ -936,18 +951,36 @@ Dabei ist:
 Bei Leitern nimmt der Widerstand mit steigender Temperatur zu (positiver Temperaturkoeffizient α > 0).
 
 Typische Werte für einige Leitermaterialien bei 20°C:
-
 | Leitermaterial | Spez. Widerstand $\rho$ (µΩ·m) | Leitfähigkeit $\sigma$ (MS/m) | Temperaturkoeffizient $\alpha$ (1/K) |
 |----------------|--------------------------------------|-------------------------|--------------------------------------|
-| Silber         | 0,0165                               | 60,6                    | 3,7 · 10<sup>−3</sup>                |
-| Kupfer         | 0,0176                               | 56,8                    | 3,9 · 10<sup>−3</sup>                |
-| Aluminium      | 0,0278                               | 36                      | 3,7 · 10<sup>−3</sup>                |
-| Messing        | 0,075                                | 13,3                    | 1,6 · 10<sup>−3</sup>                |
+| Silber         | 0,016                               | 63                    | 3,8 · 10<sup>−3</sup>                |
+| Kupfer         | 0,017                               | 58                    | 3,9 · 10<sup>−3</sup>                |
+| Aluminium      | 0,027                               | 38                    | 4,3 · 10<sup>−3</sup>                |
+| Messing        | 0,062                                | 16                    | 2,0 · 10<sup>−3</sup>                |
 
 $R(T) = R(T_0) \cdot [1 + \alpha \cdot (T - T_0)]$
 
 
-### Stromkreisberechnungen
+### Metalle als Temperatursensoren
+
+Die Temperaturabhängigkeit des Widerstands macht Metalle zu präzisen Temperatursensoren.
+
+**Platin-Widerstandsthermometer (Pt100):**
+- Pt100: $R(0°\text{C}) = 100 \, \Omega$
+- Temperaturkoeffizient: $\alpha_{\text{Pt}} = 3{,}85 \cdot 10^{-3} \, \text{K}^{-1}$
+
+
+**Vorteile von Platin-Sensoren:**
+- Hohe Langzeitstabilität
+- Breiter Messbereich (-200°C bis +850°C)
+- Gute Linearität
+- Chemische Beständigkeit
+
+![bg right:40% 90%](https://upload.wikimedia.org/wikipedia/commons/b/b3/Pt100_Resistors.jpg)
+
+
+
+## Stromkreisberechnungen
 
 1. Die Kirchhoff’schen Gesetze
 2. Zweipoltheorie
@@ -961,6 +994,17 @@ $$\sum_{k} I_{k} = 0$$
 
 ![bg right:22% 70%](https://upload.wikimedia.org/wikipedia/commons/5/51/Stromknoten.svg)
 
+### Mathematische Analogie
+
+In einer stationären (zeitlich unveränderlichen) Stromverteilung ist die elektrische Ladung überall konstant. Der gesamte Strom durch jede geschlossene Oberfläche ist Null:
+
+$$\oint_{A} \vec{J} \cdot d\vec{A} = - \frac{dQ_{\text{innen}}}{dt} = 0$$
+
+Vgl. Satz von Gauß in Abwesenheit von eingeschlossener Ladung:
+
+$$\oint_{A} \vec{D} \cdot d\vec{A} = Q_{\text{innen}} = 0$$
+
+(NB: die obige Gleichung folgt *nicht* aus der unteren – die mathematische Analogie gilt, da sowohl das elektrostatische Feld als auch die stationäre Stromdichte **quellenfreie Vektorfelder** sind.)
 
 
 ### Maschenregel (2. Kirchhoff’sches Gesetz)
@@ -977,13 +1021,9 @@ $$\sum_{k} U_{k} = 0$$
 
 $$R_\text{ges} = R_1 + R_2 + R_3 + \dots + R_n = \sum_{i=1}^{n} R_i$$
 
-Spannungsteiler:
-
-$$\sum I_{zu} = \sum I_{ab}$$
-
-Oder mit Berücksichtigung der Vorzeichen:
-
-$$\sum_{k=1}^{n} I_k = 0$$
+- Gleicher Strom durch alle Widerstände: $I = I_1 = I_2 = \dots = I_n$
+- Die Gesamtspannung ist die Summe der Einzelspannungen: $U_\text{ges} = U_1 + U_2 + \dots + U_n$
+- Gesamtwiderstand ist größer als der größte Einzelwiderstand
 
 ![bg right:30% 70%](https://upload.wikimedia.org/wikipedia/commons/2/27/Reihenschaltung_Widerst%C3%A4nde.svg)
 
@@ -991,7 +1031,7 @@ $$\sum_{k=1}^{n} I_k = 0$$
 
 Bei einer Reihenschaltung teilt sich die Gesamtspannung im Verhältnis der Widerstände auf:
 
-$$I = \frac{U}{R_{ges}} = \frac{U_1}{R_1} = \frac{U_2}{R_2}$$
+$$I = \frac{U}{R_\text{ges}} = \frac{U_1}{R_1} = \frac{U_2}{R_2}$$
 
 ![bg right:30% 70%](https://upload.wikimedia.org/wikipedia/commons/9/91/Spannungsteiler.svg)
 
@@ -1000,53 +1040,25 @@ $$I = \frac{U}{R_{ges}} = \frac{U_1}{R_1} = \frac{U_2}{R_2}$$
 
 Bei einer Parallelschaltung von Widerständen addieren sich die Leitwerte zum Gesamtleitwert:
 
-$$\frac{1}{R_{ges}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots + \frac{1}{R_n} = \sum_{i=1}^{n} \frac{1}{R_i}$$
+$$\frac{1}{R_\text{ges}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots + \frac{1}{R_n} = \sum_{i=1}^{n} \frac{1}{R_i}$$
 
 Oder mit Leitwerten:
 
-$$G_{ges} = G_1 + G_2 + \dots + G_n = \sum_{i=1}^{n} G_i$$
+$$G_\text{ges} = G_1 + G_2 + \dots + G_n = \sum_{i=1}^{n} G_i$$
 
-![bg right:30% 70%](https://upload.wikimedia.org/wikipedia/commons/9/91/Spannungsteiler.svg)
+
+- Der Gesamtstrom ist die Summe der Einzelströme: $I_\text{ges} = I_1 + I_2 + \dots + I_n$
+- Gleiche Spannung an allen Widerständen: $U = U_1 = U_2 = \dots = U_n$
+- Der Gesamtwiderstand ist kleiner als der kleinste Einzelwiderstand
+
+
+![bg right:25% 90%](https://upload.wikimedia.org/wikipedia/commons/a/ab/Parallelschaltung_Widerst%C3%A4nde.svg)
 
 ### Stromteilerregel
 
 Bei einer Parallelschaltung teilt sich der Gesamtstrom im umgekehrten Verhältnis der Widerstände bzw. im direkten Verhältnis der Leitwerte auf:
 
-$$\frac{I}{G_{ges}} = \frac{I_1}{G_1} = \frac{I_2}{G_2}= \dots = \frac{I_n}{G_n}$$
+$$\frac{I}{G_\text{ges}} = \frac{I_1}{G_1} = \frac{I_2}{G_2}= \dots = \frac{I_n}{G_n}$$
 
 ![bg right:30% 50%](https://upload.wikimedia.org/wikipedia/commons/e/e5/Stromteiler-allgemein.svg)
 
-Natürlich! Hier ist das Markdown-Quiz **ohne Frage 4**:
-
-
-
-### 1. Was beschreibt die Stromdichte $\vec{J}$?
-
-A) Die Gesamtladung, die pro Zeit durch eine Fläche fließt
-B) Den gerichteten Fluss elektrischer Ladung pro Fläche
-C) Die Geschwindigkeit elektrischer Ladungsträger
-D) Die Spannung pro Leiterlänge
-
-
-### 2. In welche Richtung zeigt die Stromdichte $\vec{J}$?
-
-A) In Richtung der Bewegung negativer Ladungsträger
-B) In Richtung der Energieausbreitung
-C) Immer entgegengesetzt zur Feldrichtung
-D) In Richtung der Bewegung positiver Ladungsträger
-
-
-### 3. Was versteht man unter der Driftgeschwindigkeit $\vec{v}_d$ von Elektronen im Metall?
-
-A) Die Geschwindigkeit einzelner Elektronen zwischen zwei Stößen
-B) Die mittlere Geschwindigkeit der Elektronen in Bewegungsrichtung bei angelegtem Feld
-C) Die Lichtgeschwindigkeit im Leiter
-D) Die Geschwindigkeit der Potentialänderung
-
-
-### 4. Wie verändert sich der Widerstand eines metallischen Leiters bei steigender Temperatur?
-
-A) Er nimmt ab
-B) Er bleibt konstant
-C) Er nimmt zu
-D) Er wird negativ
