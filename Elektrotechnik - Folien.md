@@ -1062,3 +1062,181 @@ $$\frac{I}{G_\text{ges}} = \frac{I_1}{G_1} = \frac{I_2}{G_2}= \dots = \frac{I_n}
 
 ![bg right:30% 50%](https://upload.wikimedia.org/wikipedia/commons/e/e5/Stromteiler-allgemein.svg)
 
+
+## Zweipoltheorie
+
+Ein Zweipol (*two-pole*) oder Eintor (*one-port*) ist ein elektrisches Bauteil mit zwei zugänglichen Anschlüssen
+
+![bg right:30% 80%](https://upload.wikimedia.org/wikipedia/commons/c/ce/One_Port_Circuit_de.svg)
+
+
+**Gliederung**
+
+1. Passive lineare Zweipole
+2. Aktive lineare Zweipole
+    1. Ideale Spannungsquelle
+    2. Ideale Stromquelle
+    3. Reale Spannungsquelle
+    4. Reale Stromquelle
+    5. Äquivalenz von realer Spannungs- und Stromquelle
+
+### Passive lineare Zweipole
+
+- Passiv: Zweipol gibt keine Energie ab
+- Linear: Strom-Spannungs-Kennlinie ist eine Gerade
+
+Passive lineare Zweipole können zu einem Ersatzwiderstand zusammengefasst werden
+
+$$U = R \cdot I$$
+
+
+### Ideale Spannungsquelle
+
+Eine ideale Spannungsquelle liefert eine konstante Spannung $U_0$ unabhängig von der Belastung.
+
+Eigenschaften:
+- Konstante Klemmenspannung $U = U_0$
+- Innenwiderstand $R_i = 0$
+- Beliebiger Strom $I$ möglich
+
+![bg right:25% 70%](https://upload.wikimedia.org/wikipedia/commons/5/56/Quelle_U-Schaltzeichen.svg)
+
+### Ideale Stromquelle
+
+Eine ideale Stromquelle liefert einen konstanten Strom $I_0$ unabhängig von der Belastung.
+
+Eigenschaften:
+- Konstanter Strom $I = I_0$
+- Innenwiderstand $R_i = \infty$
+- Beliebige Spannung $U$ möglich
+
+![bg right:30% 70%](https://upload.wikimedia.org/wikipedia/commons/3/3a/Quelle_I-Schaltzeichen.svg)
+
+### Reale Spannungsquelle
+
+Eine reale Spannungsquelle kann als Reihenschaltung einer idealen Spannungsquelle $U_0$ mit einem Innenwiderstand $R_i$ dargestellt werden.
+
+Eigenschaften:
+- Klemmenspannung nimmt mit zunehmendem Strom ab: $U = U_0 - R_i \cdot I$
+- Bei Leerlauf: $U = U_0$ (maximale Spannung)
+- Bei Kurzschluss: $I = \frac{U_0}{R_i}$ (maximaler Strom)
+
+![bg right:40% 90%](https://upload.wikimedia.org/wikipedia/commons/1/11/Quelle_U-Ersatz.svg)
+
+### Reale Stromquelle
+
+Eine reale Stromquelle kann als Parallelschaltung einer idealen Stromquelle $I_0$ mit einem Innenwiderstand $R_i$ dargestellt werden.
+
+Eigenschaften:
+- Strom nimmt mit zunehmender Spannung ab: $I = I_0 - \frac{U}{R_i}$
+- Bei Leerlauf: $U = I_0 \cdot R_i$ (maximale Spannung)
+- Bei Kurzschluss: $I = I_0$ (maximaler Strom)
+
+![bg right:40% 90%](https://upload.wikimedia.org/wikipedia/commons/c/cd/Quelle_I-Ersatz.svg)
+
+### Äquivalenz von realer Spannungs- und Stromquelle
+
+Die reale Spannungsquelle und reale Stromquelle sind äquivalent, wenn folgende Beziehungen gelten:
+
+$$U_0 = I_0 \cdot R_i$$
+
+$$I_0 = \frac{U_0}{R_i}$$
+
+**Umrechnung:**
+- Spannungsquelle → Stromquelle: $I_0 = \frac{U_0}{R_i}$
+- Stromquelle → Spannungsquelle: $U_0 = I_0 \cdot R_i$
+
+Beide Darstellungen beschreiben dieselbe I-U-Kennlinie: $U_\text{kl} = U_0 - R_i \cdot I$
+
+![bg right:30% vertical 90%](https://upload.wikimedia.org/wikipedia/commons/1/11/Quelle_U-Ersatz.svg)
+
+![bg right:30% vertical 90%](https://upload.wikimedia.org/wikipedia/commons/c/cd/Quelle_I-Ersatz.svg)
+
+### Reihenschaltung von aktiven, linearen Zweipolen
+
+Bei der Reihenschaltung von realen Spannungsquellen addieren sich die Leerlaufspannungen und die Innenwiderstände:
+
+$$U_{0,\text{ges}} = U_{0,1} + U_{0,2} + \dots + U_{0,n}$$
+
+$$R_{i,\text{ges}} = R_{i,1} + R_{i,2} + \dots + R_{i,n}$$
+
+**Anwendung:** Batteriepacks in Taschenlampen, Elektroautos
+**Vorteil:** Höhere Gesamtspannung
+**Nachteil:** Höherer Innenwiderstand, bei Ausfall einer Quelle fällt das gesamte System aus
+
+### Parallelschaltung von aktiven, linearen Zweipolen
+
+Bei der Parallelschaltung von realen Spannungsquellen mit gleicher Leerlaufspannung $U_0$ addieren sich die Leitwerte der Innenwiderstände:
+
+$$\frac{1}{R_{i,\text{ges}}} = \frac{1}{R_{i,1}} + \frac{1}{R_{i,2}} + \dots + \frac{1}{R_{i,n}}$$
+
+Die gemeinsame Leerlaufspannung bleibt $U_0$.
+
+**Anwendung:** Notstromversorgung, Batteriepacks für höhere Ströme
+**Vorteil:** Geringerer Innenwiderstand, höhere verfügbare Ströme
+**Nachteil:** Nur bei gleichen Spannungen sinnvoll, Ausgleichsströme bei unterschiedlichen Quellen
+
+
+
+## Arbeit und Leistung in Gleichstromkreisen
+
+1. Elektrische Arbeit
+2. Elektrische Leistung
+
+### Elektrische Arbeit (Energie)
+
+Die elektrische Arbeit ist definiert als das Produkt aus Spannung, Strom und Zeit:
+
+$$W = U \cdot I \cdot t = I^2 \cdot R \cdot t = \frac{U^2}{R} \cdot t$$
+
+Einheit: $[W] = \text{V} \cdot \text{A} \cdot \text{s} =\text{W} \cdot \text{s} = \text{J}$ (Joule)
+
+### Elektrische Leistung
+
+Die elektrische Leistung ist definiert als elektrische Arbeit pro Zeiteinheit:
+
+$$P = \frac{dW}{dt} = U \cdot I = I^2 \cdot R = \frac{U^2}{R}$$
+
+Einheit: $[P] = \text{W}$ (Watt)
+
+
+
+## Leistungsanpassung
+
+Die Leistungsanpassung beschäftigt sich mit der Frage, bei welchem Verbraucherwiderstand $R$ die maximale Leistung aus einer Quelle entnommen werden kann.
+
+Für eine reale Spannungsquelle mit der Leerlaufspannung $U_0$ und dem Innenwiderstand $R_i$ beträgt die Leistung am Verbraucher:
+
+$$P = R \cdot I^2 = U_0^2 \cdot \frac{R}{(R_i + R)^2}$$
+
+Diese Leistung wird maximal, wenn der Verbraucherwiderstand gleich dem Innenwiderstand der Quelle ist:
+
+$$R = R_i$$
+
+Die maximale Leistung beträgt dann:
+
+$$P_\text{max} = \frac{U_0^2}{4 \cdot R_i}$$
+
+### Anpassungsverhältnis und Wirkungsgrad
+
+Das Anpassungsverhältnis $\alpha$ ist definiert als:
+
+$$\alpha = \frac{R}{R_i}$$
+
+Der Wirkungsgrad $\eta$ gibt das Verhältnis der am Verbraucher umgesetzten Leistung zur Gesamtleistung der Quelle an:
+
+$$\eta = \frac{P}{P_0} = \frac{R}{R_i + R} = \frac{\alpha}{1 + \alpha}$$
+
+Bei optimaler Leistungsanpassung ($\alpha = 1$) beträgt der Wirkungsgrad nur $\eta = 0,5$ (50%).
+
+
+### Betriebszustände einer aktiven Quelle
+
+|             | Last            | Leistung Quelle $P_0$                                | Leistung Last $P$               | Wirkungsgrad $\eta$ |
+|-----------------|----------------------|------------------------------------------------------|---------------------------------|---------------------|
+| Kurzschluß      | $R = 0$              | $P_0 = \frac{U_0^2}{R_i}$                            | $P = 0$                         | $\eta = 0$          |
+| Unteranpassung  | $R < R_i$            | $P_0 = \frac{U_0^2}{R_i} \cdot \frac{R}{R+R_i}$      | $0 < P < P_\text{max}$          | $0 < \eta < 0{,}5$    |
+| Anpassung       | $R = R_i$            | $P_0 = \frac{U_0^2}{2R_i}$                           | $P = \frac{U_0^2}{4R_i}$        | $\eta = 0{,}5$        |
+| Überanpassung   | $R > R_i$            | $P_0 = \frac{U_0^2}{R_i} \cdot \frac{R}{R+R_i}$      | $0 < P < P_\text{max}$          | $0{,}5 < \eta < 1$    |
+| Leerlauf        | $R \to \infty$       | $P_0 = 0$                                            | $P = 0$                         | $\eta = 1$          |
+
