@@ -49,6 +49,7 @@ David Straub
 Python:
 
 ```python
+# Einfache Textausgabe auf der Konsole
 print("Hallo Welt!")
 ```
 
@@ -67,6 +68,7 @@ public class HelloWorld {
 Python:
 
 ```python
+# List comprehension: erstellt Liste mit Quadratzahlen von 0² bis 9²
 quadrate = [x**2 for x in range(10)]
 ```
 
@@ -187,29 +189,31 @@ Moodle: https://link.hm.edu/y4vj
 Variablen speichern Werte:
 
 ```python
+# Zuweisung von Werten zu Variablen
 x = 42
-y = x
-x = 100
-print(y)
+y = x  # y erhält den Wert von x (42)
+x = 100  # x wird überschrieben
+print(y)  # gibt 42 aus (y ist unverändert)
 ```
 
 ```python
-print(x)
+# Ausgabe des aktuellen Wertes von x
+print(x)  # gibt 100 aus
 ```
 
 ### Variablennamen: Fallstricke
 
 ```python
-# class = "Mathematik"  # SyntaxError!
-klass = "Mathematik"
+# class = "Mathematik"  # SyntaxError! 'class' ist ein reserviertes Schlüsselwort
+klass = "Mathematik"  # Alternative Schreibweise verwenden
 print(klass)
 ```
 
 ```python
-# Schlecht lesbar:
-l = 1
-I = 1  
-O = 0
+# Schlecht lesbar: Vermeide l, I, O als Variablennamen (Verwechslungsgefahr mit 1, 0)
+l = 1  # Sieht aus wie 1
+I = 1  # Sieht aus wie l
+O = 0  # Sieht aus wie 0
 print(l, I, O)
 ```
 
@@ -238,12 +242,14 @@ __very_private = "secret"
 Integers haben unbegrenzte Präzision:
 
 ```python
-riesig = 2 ** 1000
-print(len(str(riesig)))
+# Python kann beliebig große Zahlen darstellen
+riesig = 2 ** 1000  # 2 hoch 1000
+print(len(str(riesig)))  # Anzahl der Ziffern
 ```
 
 
 ```python
+# Modulo-Operation: Rest bei Division durch 1000
 print(riesig % 1000)
 ```
 
@@ -251,22 +257,26 @@ print(riesig % 1000)
 ### Division & Integers
 
 ```python
-print(10 / 3)
+# Normale Division erzeugt immer float
+print(10 / 3)  # 3.333...
 ```
 
 
 ```python
-print(type(10 / 3))
+# Überprüfung des Datentyps
+print(type(10 / 3))  # <class 'float'>
 ```
 
 
 ```python
-print(10 // 3)
+# Ganzzahlige Division (abgerundet)
+print(10 // 3)  # 3
 ```
 
 
 ```python
-print(-10 // 3)
+# Ganzzahlige Division rundet bei negativen Zahlen nach unten
+print(-10 // 3)  # -4 (nicht -3!)
 ```
 
 
@@ -276,60 +286,72 @@ print(-10 // 3)
 Booleans sind eigentlich Integers:
 
 ```python
-print(True + True)
+# True entspricht 1, False entspricht 0
+print(True + True)  # 2
 ```
 
 
 ```python
-print(True * 42)
+# True verhält sich wie 1 in Berechnungen
+print(True * 42)  # 42
 ```
 
 
 ```python
-print(False - True)
+# False (0) minus True (1) ergibt -1
+print(False - True)  # -1
 ```
 
 ### Vergleichsoperatoren
 ```python
-print(5 == 5)
+# Gleichheit prüfen
+print(5 == 5)  # True
 ```
 
 ```python
-print(5 != 3)
+# Ungleichheit prüfen
+print(5 != 3)  # True
 ```
 
 ```python
-print(10 > 5)
+# Größer-als Vergleich
+print(10 > 5)  # True
 ```
 
 ```python
-print(5 >= 5)
+# Größer-gleich Vergleich
+print(5 >= 5)  # True
 ```
 
 ```python
-print("Python" > "Java")  # Lexikografischer Vergleich
+# Lexikografischer Vergleich: Zeichenweise nach Unicode-Werten
+print("Python" > "Java")  # True (P > J im Alphabet)
 ```
 
 
 ### Truthiness: Was ist wahr?
 
 ```python
-print(bool(0))
+# 0 ist falsy (wird als False interpretiert)
+print(bool(0))  # False
 ```
 
 
 ```python
-print(bool(42))
+# Alle Zahlen außer 0 sind truthy
+print(bool(42))  # True
 ```
 
 
 ```python
-print(bool(""))
+# Leere Strings sind falsy
+print(bool(""))  # False
 ```
 
 
 ```python
-print(bool("0"))
+# Nicht-leere Strings sind truthy (auch "0"!)
+print(bool("0"))  # True
 ```
 
 
@@ -337,434 +359,416 @@ print(bool("0"))
 ### Vergleichsoperatoren: Chaining
 
 ```python
+# Python erlaubt verkettete Vergleiche
 x = 5
-print(1 < x < 10)
+print(1 < x < 10)  # True (x ist zwischen 1 und 10)
 ```
 
 
 ```python
-print(10 < x < 20)
+# Beide Bedingungen müssen erfüllt sein
+print(10 < x < 20)  # False (x ist nicht größer als 10)
 ```
 
 
 ```python
-print(1 < x > 3)
+# Verschiedene Operatoren können kombiniert werden
+print(1 < x > 3)  # True (x > 1 AND x > 3)
 ```
 
 ### Logische Operatoren
 
 ```python
-print(True and False)
+# AND: Beide Bedingungen müssen wahr sein
+print(True and False)  # False
 ```
 
 ```python
-print(True or False)
+# OR: Mindestens eine Bedingung muss wahr sein
+print(True or False)  # True
 ```
 
 ```python
-print(not True)
+# NOT: Negiert den Wahrheitswert
+print(not True)  # False
 ```
 
 ```python
-print(not False)
+# NOT mit False ergibt True
+print(not False)  # True
 ```
 
 ```python
-print(not 0)
+# NOT mit falsy-Wert (0) ergibt True
+print(not 0)  # True
 ```
 
 ```python
-print(not "")
+# NOT mit falsy-Wert (leerer String) ergibt True
+print(not "")  # True
 ```
 
 
-### Kurzschlussauswertung
+### Fließkommazahlen (float)
 
 ```python
-print(False and 1/0)
-```
-
-
-```python
-print(True or 1/0)
-```
-
-
-```python
-print(0 and print("Hallo"))
-```
-
-
-### Gleitkommazahlen (float)
-
-IEEE 754 Double Precision Fallstricke:
-
-```python
-print(0.1 + 0.1 + 0.1)
-```
-
-
-```python
-print(0.1 + 0.1 + 0.1 == 0.3)
-```
-
-
-```python
-x = 0.1
-print(f"{x:.20f}")
-```
-
-### Vergleich von Gleitkommazahlen
-
-```python
-a = 0.1 + 0.1 + 0.1
-b = 0.3
-tolerance = 1e-10
-print(abs(a - b) < tolerance)
-```
-
-
-### Extreme Werte
-
-```python
-print(1e308)
-```
-
-
-```python
-print(1e309)
-```
-
-
-```python
-print(1e-324)
-```
-
-
-```python
-print(1e-325)
-```
-
-
-### Strings
-
-```python
-# Verschiedene Anführungszeichen
-single = 'Hallo'
-double = "Welt"
-print(single + " " + double)
+# Nachkommastellen werden mit Punkt getrennt
+pi = 3.14159
+print(pi)
 ```
 
 ```python
-triple = """Mehrzeiliger
-String"""
-print(triple)
+# Wissenschaftliche Notation (e = *10^)
+lichtgeschwindigkeit = 3e8  # 3 × 10^8 m/s
+print(lichtgeschwindigkeit)
 ```
 
 
-### Strings und Unicode: Emoji
+### Float-Präzision
 
 ```python
-# Strings unterstützen vollständig Unicode
-message = "Python ist toll! 🐍✨"
-print(message)
+# Floats haben begrenzte Präzision (Rundungsfehler!)
+print(0.1 + 0.2)  # 0.30000000000000004 (nicht exakt 0.3)
 ```
 
 ```python
-# Emoji sind normale Zeichen
-emoji_string = "🚀🌟💻"
-print(len(emoji_string))
+# Vergleich auf Gleichheit mit Toleranz
+diff = abs((0.1 + 0.2) - 0.3)
+print(diff < 1e-10)  # True (nahe genug an 0.3)
 ```
 
-
-### Escape Sequences
+### String-Basics
 
 ```python
-print("C:\new_folder\test.txt")
+# Strings mit einfachen Anführungszeichen
+name = 'Alice'
+print(name)
 ```
 
-
 ```python
-print(r"C:\new_folder\test.txt")
+# Strings mit doppelten Anführungszeichen
+greeting = "Hallo"
+print(greeting)
 ```
 
-
 ```python
-print("Zeile 1\nZeile 2\tTab")
+# Strings können mit + verkettet werden
+message = greeting + " " + name
+print(message)  # "Hallo Alice"
 ```
 
-### String-Formatierung mit f-Strings
+### String-Operationen
 
 ```python
+# Länge eines Strings ermitteln
+text = "Python"
+print(len(text))  # 6
+```
+
+```python
+# Wiederholung mit *
+print("Ha" * 3)  # "HaHaHa"
+```
+
+```python
+# Auf Zeichen zugreifen (Index beginnt bei 0)
+print(text[0])  # "P" (erstes Zeichen)
+print(text[-1])  # "n" (letztes Zeichen)
+```
+
+### String-Slicing
+
+```python
+# Teilstring extrahieren: [start:end] (end ist exklusiv)
+word = "Programming"
+print(word[0:4])  # "Prog"
+```
+
+```python
+# Vom Anfang bis Position
+print(word[:4])  # "Prog"
+```
+
+```python
+# Von Position bis Ende
+print(word[3:])  # "gramming"
+```
+
+```python
+# Mit Schrittweite
+print(word[::2])  # "Pormmn" (jedes zweite Zeichen)
+```
+
+### String-Methoden
+
+```python
+# Groß- und Kleinschreibung
+text = "Python Programming"
+print(text.upper())  # "PYTHON PROGRAMMING"
+print(text.lower())  # "python programming"
+```
+
+```python
+# Suchen und Ersetzen
+print(text.replace("Python", "Java"))  # "Java Programming"
+```
+
+```python
+# Aufteilen in Liste
+words = text.split()  # Teilt bei Leerzeichen
+print(words)  # ['Python', 'Programming']
+```
+
+### F-Strings (Formatierte Strings)
+
+```python
+# Variablen direkt in Strings einbetten
 name = "Alice"
 age = 25
-print(f"Hallo, ich bin {name} und {age} Jahre alt")
+print(f"Hallo {name}, du bist {age} Jahre alt.")
 ```
 
-Vorteile gegenüber älteren Methoden:
-- Lesbar und intuitiv
-- Direkte Variableneinbettung
-- Schneller als `.format()` oder `%`-Formatierung
-- Unterstützt Ausdrücke: `f"Das Ergebnis ist {x + y}"`
-
-
-
-### f-String Formatierung
-
 ```python
-number = 1234567.89
-print(f"{number:,.2f}")
+# Berechnungen in F-Strings
+x = 10
+y = 3
+print(f"{x} + {y} = {x + y}")
 ```
 
-
 ```python
-print(f"{number:>15,.2f}")
+# Formatierung von Zahlen
+pi = 3.14159
+print(f"Pi auf 2 Stellen: {pi:.2f}")  # 3.14
 ```
 
+## Verzweigungen
+
+### Warum Verzweigungen?
+
+- Programme müssen unterschiedlich reagieren je nach Situation
+- Entscheidungen basierend auf Bedingungen treffen
+- Code nur unter bestimmten Voraussetzungen ausführen
+
+**Beispiele:**
+- Ist die Temperatur zu hoch? → Warnung ausgeben
+- Ist die Zahl gerade? → Anders behandeln als ungerade
+- Hat der Benutzer gültige Eingaben gemacht? → Weiterverarbeiten oder Fehler
+
+### `if`-Anweisung
 
 ```python
-percent = 0.1234
-print(f"{percent:.1%}")
+# Einfache if-Verzweigung
+temperatur = 25
+if temperatur > 20:
+    print("Es ist warm.")  # Wird nur ausgeführt wenn Bedingung wahr
 ```
 
-
-### Aufgabe: Persönlicher Datenrechner
-
-Schreibe ein Python-Skript, das persönliche Daten verarbeitet:
-
-**Gegeben:**
-- Name, Geburtsjahr, Größe (cm), Gewicht (kg)
-
-**Berechne und gib aus:**
-- Alter (aktuelles Jahr: 2025)
-- BMI (Gewicht / (Größe in m)²)
-- Personendaten als formatierte f-Strings
-- Wahrheitswerte für: ist volljährig, ist normalgewichtig (BMI 18,5-24,9)
-
-
-### Kontrollstrukturen: Übersicht
-
-**Was sind Kontrollstrukturen?**
-- Mechanismen zur Steuerung des Programmflusses
-- Bestimmen die Reihenfolge der Befehlsausführung
-- Ermöglichen komplexe Programmlogik
-
-**Grundtypen:**
-1. **Sequenz** – Befehle nacheinander (Standard)
-2. **Verzweigung** – Bedingte Ausführung (`if`, `elif`, `else`)
-3. **Wiederholung** – Schleifen (`for`, `while`)
-
-
-### Verzweigungen
-
-**Konzept:**
-- Programme müssen Entscheidungen treffen
-- Verschiedene Pfade basierend auf Bedingungen
-- Ermöglicht adaptive und intelligente Programme
-
-**Syntax-Muster:**
 ```python
-if bedingung1:
-    # Code wenn bedingung1 wahr
-elif bedingung2:
-    # Code wenn bedingung2 wahr  
+# Ohne if-Bedingung würde immer ausgegeben werden
+temperatur = 15
+if temperatur > 20:
+    print("Es ist warm.")  # Wird nicht ausgeführt (keine Ausgabe)
+```
+
+### `if-else`
+
+```python
+# Alternative bei nicht erfüllter Bedingung
+alter = 16
+if alter >= 18:
+    print("Volljährig")
 else:
-    # Code wenn keine Bedingung wahr
+    print("Minderjährig")  # Wird ausgeführt, da alter < 18
 ```
 
-### Verzweigungen: Wichtige Konzepte
-
-- Einrückung (Indentation) definiert Codeblöcke
-- Bedingungen werden von oben nach unten geprüft
-- Nur der erste wahre Zweig wird ausgeführt
-
-
-### Verzweigungen: Truthiness in der Praxis
+### `if-elif-else`
 
 ```python
-name = ""
-if name:
-    print("Name ist vorhanden")
+# Mehrere Bedingungen nacheinander prüfen
+note = 85
+if note >= 90:
+    print("Sehr gut")
+elif note >= 80:
+    print("Gut")  # Wird ausgeführt
+elif note >= 70:
+    print("Befriedigend")
 else:
-    print("Kein Name angegeben")
+    print("Nicht bestanden")
 ```
 
+### Verschachtelte Verzweigungen
 
 ```python
-name = "Alice"
-if name:
-    print("Name ist vorhanden")
+# if-Anweisungen können ineinander verschachtelt werden
+regen = True
+temperatur = 22
+
+if temperatur > 20:
+    if regen:
+        print("Warm aber regnerisch - Regenjacke mitnehmen")
+    else:
+        print("Schönes Wetter!")
 else:
-    print("Kein Name angegeben")
+    print("Zu kalt")
 ```
 
-
-
-### Komplexe Bedingungen
+### Kurzform: Ternärer Operator
 
 ```python
-age = 17
-has_id = True
-if age >= 18 and has_id:
-    print("Einlass gewährt")
-elif age >= 16:
-    print("Einlass mit Begleitung")
-else:
-    print("Kein Einlass")
+# Kompakte Schreibweise für einfache if-else
+alter = 20
+status = "Volljährig" if alter >= 18 else "Minderjährig"
+print(status)
 ```
-
 
 ```python
-age = 20
-has_id = False
-if age >= 18 and has_id:
-    print("Einlass gewährt")
-elif age >= 16:
-    print("Einlass mit Begleitung") 
-else:
-    print("Kein Einlass")
+# Äquivalent zur ausführlichen Form:
+# if alter >= 18:
+#     status = "Volljährig"
+# else:
+#     status = "Minderjährig"
 ```
 
-### Aufgabe
+### Verzweigung mit logischen Operatoren
 
-Schreibe ein Python-Programm um zu entscheiden, ob eine Rakete starten darf.
+```python
+# Mehrere Bedingungen kombinieren
+temperatur = 28
+luftfeuchtigkeit = 70
 
-**Eingaben:**
-- Treibstoff (%), Temperatur (°C), Crew (ja/nein), Wetter
+# AND: Beide Bedingungen müssen erfüllt sein
+if temperatur > 25 and luftfeuchtigkeit > 60:
+    print("Schwül!")
+```
 
-**Startbedingungen:**
-- Treibstoff ≥ 70%, Temperatur < 100°C, Crew bereit, Wetter ≠ "storm"
+```python
+# OR: Mindestens eine Bedingung muss erfüllt sein
+if temperatur > 35 or temperatur < 0:
+    print("Extremtemperatur!")
+```
 
-**Ausgabe:**
-- ✅ "🚀 Startfreigabe erteilt!" oder ❌ "Start abgebrochen!" + Grund
+### Aufgabe: Schaltjahr
 
-![bg right:30%](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SpaceX_Starship_ignition_during_IFT-5.jpg/960px-SpaceX_Starship_ignition_during_IFT-5.jpg)
+Ein Jahr ist ein Schaltjahr, wenn:
+- Es durch 4 teilbar ist UND
+- Nicht durch 100 teilbar ist ODER durch 400 teilbar ist
+
+Schreibe Code, der für ein gegebenes Jahr ausgibt, ob es ein Schaltjahr ist.
+
+```python
+# Beispiel
+jahr = 2024
+# Deine Lösung hier
+```
 
 ## Funktionen
 
-### Kapselung von Komplexität
+### Warum Funktionen?
 
-&nbsp;
-
-> The greatest limitation in writing software is our ability to understand the systems we are creating.
->
-> …
->
->There are two general approaches to fighting complexity … The first is to eliminate complexity by making code **simpler and more obvious**. … The second is to **encapsulate it**, so that programmers can work on a system without being exposed to all of its complexity at once.
-
-&nbsp;
-
-John Ousterhout, “A Philosophy of Software Design”
-
-
-### Warum Funktionen? 
-
-Das DRY-Prinzip: **"Don't Repeat Yourself"**
+- **Code-Wiederverwendung**: Einmal schreiben, mehrmals nutzen
+- **Struktur**: Komplexe Programme in kleine Teile zerlegen
+- **Wartbarkeit**: Änderungen nur an einer Stelle nötig
+- **Lesbarkeit**: Aussagekräftige Namen statt komplizierter Code-Blöcke
 
 ```python
-FOOT = 0.3048
-NAUTICAL_MILE = 1852.0
-
-altitude_ft = 35000
-altitude_m = altitude_ft * FOOT  # Flughöhe
-print(f"Flughöhe: {altitude_ft} ft = {altitude_m:.0f} m")
-
-distance_nm = 450
-distance_m = distance_nm * NAUTICAL_MILE  # Strecke
-print(f"Strecke: {distance_nm} nm = {distance_m:.0f} m")
-
-# usw. ...
+# Ohne Funktion: Code-Wiederholung
+print("Hallo Alice!")
+print("Hallo Bob!")
+print("Hallo Charlie!")
 ```
 
-Probleme: Code-Duplikation, Fehleranfällig, schwer zu ändern
-
-### Funktionen: Kapselung (*encapsulation*) der Funktionalität
-
 ```python
-def fuss_zu_meter(fuss):
-    return fuss * 0.3048
+# Mit Funktion: Wiederverwendbar und übersichtlich
+def begruessung(name):
+    print(f"Hallo {name}!")
 
-def seemeilen_zu_meter(seemeilen):
-    return seemeilen * 1852.0
-
-
-# Jetzt einfach und wiederverwendbar:
-print(f"Flughöhe: {fuss_zu_meter(35000):.0f} m")
-print(f"Landebahn: {fuss_zu_meter(8000):.0f} m")
-print(f"Reichweite: {seemeilen_zu_meter(3000):.0f} m")
+begruessung("Alice")
+begruessung("Bob")
+begruessung("Charlie")
 ```
 
-**Vorteile:** Wiederverwendbar, lesbar, wartbar, weniger Fehler!
-
-### Anatomie einer Funktion
+### Funktion definieren und aufrufen
 
 ```python
-def funktionsname(parameter1, parameter2):
-    """Optionaler Docstring zur Dokumentation"""
-    # Funktions-Code hier
-    ergebnis = parameter1 + parameter2
-    return ergebnis  # Optional: Rückgabewert
-```
+# Definition: Mit 'def' und Funktionsnamen
+def sage_hallo():
+    print("Hallo!")
+    print("Schön dich zu sehen.")
 
-**Aufbau:**
-- `def` - Schlüsselwort für Funktionsdefinition
-- `funktionsname` - Aussagekräftiger Name (snake_case 🐍)
-- `()` - Parameter in runden Klammern
-- `:` - Doppelpunkt zum Start des Funktionsblocks
-- Eingerückter Code-Block
-- `return` - Optionale Rückgabe
-
-### Erste einfache Funktion
-
-```python
-def mission_start():
-    print("🚀 Mission Control: Start-Sequenz initiiert")
-    print("✅ Alle Systeme bereit für den Start!")
-
-# Funktion aufrufen:
-mission_start()
+# Aufruf: Funktionsnamen mit Klammern
+sage_hallo()
 ```
 
 ### Funktionen mit Parametern
 
 ```python
-def mission_status(spacecraft):
-    print(f"🛰️ {spacecraft} Status: Alle Systeme nominal")
-    print("Bereit für nächste Manöver-Phase")
+# Parameter ermöglichen flexible Funktionen
+def addiere(a, b):
+    summe = a + b
+    print(f"{a} + {b} = {summe}")
 
-mission_status("ISS")
-mission_status("Artemis I")
-mission_status("Dragon Capsule")
+# Aufruf mit verschiedenen Argumenten
+addiere(5, 3)
+addiere(10, 20)
 ```
 
-### Mehrere Parameter
+### Rückgabewerte
 
 ```python
-def flugdaten_anzeigen(flugzeug_typ, hoehe_ft, geschwindigkeit_kn):
-    hoehe_m = hoehe_ft * 0.3048
-    geschwindigkeit_kmh = geschwindigkeit_kn * 1.852
-    print(f"✈️ {flugzeug_typ}")
-    print(f"Höhe: {hoehe_ft} ft ({hoehe_m:.0f} m)")
-    print(f"Geschwindigkeit: {geschwindigkeit_kn} kn ({geschwindigkeit_kmh:.0f} km/h)")
-    
-# Verschiedene Aufrufe:
-flugdaten_anzeigen("Airbus A380", 35000, 450)
-flugdaten_anzeigen(hoehe_ft=25000, flugzeug_typ="Boeing 737", geschwindigkeit_kn=420)
+# 'return' gibt einen Wert zurück
+def multipliziere(x, y):
+    ergebnis = x * y
+    return ergebnis  # Wert wird zurückgegeben
+
+# Rückgabewert in Variable speichern
+resultat = multipliziere(4, 7)
+print(resultat)  # 28
 ```
 
-### Rückgabewerte: return
+```python
+# Ohne return wird None zurückgegeben
+def ohne_return():
+    x = 5
+
+ergebnis = ohne_return()
+print(ergebnis)  # None
+```
+
+### Docstrings: Funktionen dokumentieren
+
+```python
+# Docstring: Erste Zeile nach def beschreibt die Funktion
+def berechne_flaeche(breite, hoehe):
+    """
+    Berechnet die Fläche eines Rechtecks.
+    
+    Parameter:
+        breite: Breite des Rechtecks
+        hoehe: Höhe des Rechtecks
+    
+    Rückgabe:
+        Fläche als Produkt von Breite und Höhe
+    """
+    return breite * hoehe
+
+# Docstring abrufen mit help()
+help(berechne_flaeche)
+```
+
+### Beispiel: Orbital-Geschwindigkeit
 
 ```python
 def berechne_orbital_geschwindigkeit(hoehe_km):
+    """Berechnet die Orbitalgeschwindigkeit für eine gegebene Höhe."""
     # Vereinfachte Berechnung für kreisförmige Umlaufbahn
     erdradius = 6371  # km
     gravitationskonstante = 398600  # km³/s²
-    r = erdradius + hoehe_km
-    geschwindigkeit = (gravitationskonstante / r) ** 0.5
+    r = erdradius + hoehe_km  # Gesamtdistanz vom Erdmittelpunkt
+    geschwindigkeit = (gravitationskonstante / r) ** 0.5  # v = sqrt(μ/r)
     return geschwindigkeit
 
 # ISS-Orbitalgeschwindigkeit berechnen:
-iss_hoehe = 408  # km
+iss_hoehe = 408  # km über Erdoberfläche
 v_orbital = berechne_orbital_geschwindigkeit(iss_hoehe)
 print(f"ISS Orbitalgeschwindigkeit: {v_orbital:.2f} km/s")
 ```
@@ -774,41 +778,48 @@ print(f"ISS Orbitalgeschwindigkeit: {v_orbital:.2f} km/s")
 
 ```python
 def triebwerk_analyse(schub_newton, treibstoff_verbrauch_kg_s):
+    """Analysiert Triebwerk-Parameter und gibt zwei Kennwerte zurück."""
+    # Spezifischer Impuls: Schub pro Massenstrom
     spezifischer_impuls = schub_newton / treibstoff_verbrauch_kg_s
-    triebwerk_masse = 1000  # kg
+    triebwerk_masse = 1000  # kg (Beispielwert)
+    # Schub-Gewichts-Verhältnis
     schub_gewichts_verhaeltnis = schub_newton / (triebwerk_masse * 9.81)
-    return spezifischer_impuls, schub_gewichts_verhaeltnis
+    return spezifischer_impuls, schub_gewichts_verhaeltnis  # Tupel-Rückgabe
 
+# Beide Werte gleichzeitig entpacken
 isp, twr = triebwerk_analyse(2200000, 700)
 print(f"Spez. Impuls: {isp:.0f} N⋅s/kg, Schub/Gewicht: {twr:.1f}")
 ```
 
-Mehr zu „Tupeln“ (`x, y`) in Kapitel 5 (Datenstrukturen)!
+Mehr zu „Tupeln" (`x, y`) in Kapitel 5 (Datenstrukturen)!
 
 
 ### Standardwerte für Parameter
 
 ```python
+# Parameter können Standardwerte haben
 def mission_planung(ziel, startdatum="TBD", crew_groesse=3, notfall_backup=True):
+    """Plant eine Weltraummission mit optionalen Parametern."""
     print(f"🚀 Mission zum {ziel}")
     print(f"Start: {startdatum}")
     print(f"Crew: {crew_groesse} Astronauten")
     if notfall_backup:
         print("✅ Notfall-Backup-Systeme aktiv")
         
-# Verschiedene Missionen:
-mission_planung("Mond")
-mission_planung("Mars", "2026-07-15")
-mission_planung("ISS", crew_groesse=6)
+# Verschiedene Missionen: Parameter mit Standardwerten können weggelassen werden
+mission_planung("Mond")  # Nur Pflichtwert
+mission_planung("Mars", "2026-07-15")  # Mit Startdatum
+mission_planung("ISS", crew_groesse=6)  # Spezifischer Parameter
 mission_planung("Europa", startdatum="2030-01-01", notfall_backup=False)
 ```
 
 ### Lokale vs. Globale Variablen
 ```python
-# Globale Variable
+# Globale Variable (außerhalb von Funktionen definiert)
 temperatur = 20  # °C
 
 def berechne_luftdichte(hoehe_m):
+    """Berechnet Luftdichte in einer bestimmten Höhe."""
     # Lokale Variable (nur in der Funktion sichtbar)
     temperatur = -50  # °C in der Stratosphäre
     # Diese lokale Variable "überdeckt" die globale
@@ -828,6 +839,8 @@ print(f"Nach Funktionsaufruf: {temperatur}°C")  # Immer noch 20°C!
 
 ```python
 def startfreigabe_pruefen(treibstoff_prozent, wetter, crew_bereit, systeme_ok):
+    """Prüft alle Startbedingungen und gibt Freigabe-Status zurück."""
+    # Mehrere Bedingungen nacheinander prüfen
     if treibstoff_prozent < 95:
         return False, "Treibstoff unzureichend"
     elif wetter != "gut":
@@ -850,13 +863,15 @@ print(f"Freigabe: {freigabe} - {grund}")
 
 ```python
 def schnelle_startpruefung(treibstoff, wetter, crew, systeme):
+    """Kompakte Startprüfung: Gibt True zurück wenn alle Bedingungen erfüllt."""
+    # Alle Bedingungen mit AND verknüpft
     return (treibstoff >= 95 and wetter == "gut" and 
             crew and systeme)
 
 # Verschiedene Raketen einzeln prüfen:
 falcon_heavy = schnelle_startpruefung(98, "gut", True, True)
-sls = schnelle_startpruefung(92, "gut", True, True)
-starship = schnelle_startpruefung(99, "windig", True, True)
+sls = schnelle_startpruefung(92, "gut", True, True)  # Treibstoff zu niedrig
+starship = schnelle_startpruefung(99, "windig", True, True)  # Wetter schlecht
 
 print(f"Falcon Heavy: {'✅ GO' if falcon_heavy else '❌ NO-GO'}")
 print(f"SLS: {'✅ GO' if sls else '❌ NO-GO'}")
@@ -870,7 +885,7 @@ print(f"Starship: {'✅ GO' if starship else '❌ NO-GO'}")
 2. **Keine Nebeneffekte**: Ändern nichts außerhalb der Funktion
 
 ```python
-# Reine Funktion
+# Reine Funktion: Nur Berechnung, keine Nebeneffekte
 def addiere(a, b):
     return a + b
 
@@ -893,6 +908,7 @@ Weitere Beispiele für Nebeneffekte: Ändern globaler Variablen, Schreiben in Da
 ```python
 # Reine Funktion - immer testbar
 def celsius_zu_fahrenheit(celsius):
+    """Konvertiert Celsius zu Fahrenheit."""
     return celsius * 9/5 + 32
 
 # Test ist einfach und zuverlässig
@@ -950,10 +966,11 @@ Zwei Typen von Schleifen:
 ### while: Grundform
 
 ```python
+# Einfache Zählschleife mit while
 i = 0
-while i < 3:
-    print(i)
-    i += 1
+while i < 3:  # Bedingung: solange i kleiner als 3
+    print(i)  # Ausgabe: 0, 1, 2
+    i += 1  # Zähler erhöhen (wichtig!)
 ```
 
 ### Endlosschleife vermeiden
@@ -963,55 +980,60 @@ while i < 3:
 i = 0
 while i < 3:
     print(i)
-    # i += 1  # vergessen!
+    # i += 1  # vergessen! → Bedingung bleibt immer True
 ```
 
 ### while: Zählschleife (wenn Bedingungen flexibler sein sollen)
 
 ```python
+# Schleife mit mehreren Abbruchbedingungen
 schritte = 0
 energie = 10
-while energie > 0 and schritte < 5:
+while energie > 0 and schritte < 5:  # Stopp bei energie=0 ODER 5 Schritten
     print(f"Schritt {schritte}: Energie = {energie}")
-    energie -= 3
-    schritte += 1
+    energie -= 3  # Energie reduzieren
+    schritte += 1  # Schrittzähler erhöhen
 ```
 
 ### Sentinel-Schleife (lesen bis Ende)
 
 ```python
+# Wiederhole bis spezielle Eingabe (Sentinel-Wert)
 zeile = input("Wert (leer beendet): ")
-while zeile != "":
+while zeile != "":  # Leere Eingabe = Abbruch
     print(f"Eingabe war: {zeile}")
-    zeile = input("Wert (leer beendet): ")
+    zeile = input("Wert (leer beendet): ")  # Neue Eingabe
 ```
 
 ### Iteration bis Toleranz (Konvergenz)
 
 ```python
+# Annäherung an Zielwert mit Toleranz
 temp = 20.0
 ziel = 22.0
 schritt = 0.3
 iters = 0
+# Stoppe wenn nahe genug am Ziel ODER max. Iterationen erreicht
 while abs(temp - ziel) > 0.1 and iters < 200:
-    temp += schritt
-    iters += 1
+    temp += schritt  # Temperatur erhöhen
+    iters += 1  # Zähler erhöhen
 print(f"Endtemperatur {temp:.1f}°C nach {iters} Schritten")
 ```
 
 ### `break` und `continue` mit `while`
 
 ```python
-# Suche die erste ungerade Zahl > 15 unter den Zahlen 1–20
+# break: Schleife vorzeitig beenden
+# continue: Rest des Durchlaufs überspringen
 nummer = 0
 gefunden = None
 while nummer <= 20:
     nummer += 1
     if nummer % 2 == 0:
-        continue  # überspringen (gerade Zahlen)
+        continue  # Gerade Zahlen überspringen
     if nummer > 15:
-        gefunden = nummer
-        break     # abbrechen (erste ungerade > 15)
+        gefunden = nummer  # Erste ungerade Zahl > 15
+        break  # Schleife abbrechen
     print(f"Prüfe: {nummer}")
 print(f"Gefunden: {gefunden}")
 ```
@@ -1042,41 +1064,48 @@ Entwirf eine Regelung, die eine Geschwindigkeit `v` auf `v_target` bringt.
 ### `for`: Wiederholungen mit `range()`
 
 ```python
-for i in range(5):  # 0, 1, 2, 3, 4
+# Schleife mit fester Anzahl Wiederholungen
+for i in range(5):  # Iteriert über 0, 1, 2, 3, 4
     print(f"Durchlauf {i}")
 ```
 
 ### `range()`: Integer-Folgen erzeugen
 
 ```python
-for i in range(5):  # 0,1,2,3,4
+# range() erzeugt Zahlenfolge von 0 bis n-1
+for i in range(5):  # 0, 1, 2, 3, 4
     print(i)
 ```
 
 ```python
-print(range(5))  # range ist ein spezieller Typ
+# range ist ein spezieller Typ (kein Liste)
+print(range(5))  # range(0, 5)
 ```
 
 ### `range(start, stop)` und `range(start, stop, step)`
 
 ```python
-for i in range(2, 7):  # 2,3,4,5,6
+# range mit Start- und Endwert
+for i in range(2, 7):  # Start bei 2, Ende vor 7: 2,3,4,5,6
     print(i)
 ```
 
 ```python
-for t in range(10, -1, -2):  # 10,8,6,4,2,0
+# range mit Schrittweite (auch rückwärts)
+for t in range(10, -1, -2):  # Von 10 bis 0 in 2er-Schritten: 10,8,6,4,2,0
     print(t)
 ```
 
 ### Über Strings iterieren
 
 ```python
-for ch in "ABCD":
+# Jedes Zeichen einzeln durchgehen
+for ch in "ABCD":  # Iteriert über jeden Buchstaben
     print(ch)
 ```
 
 ```python
+# String-Variable iterieren
 wort = "NASA"
 for buchstabe in wort:
     print(f"Buchstabe: {buchstabe}")
@@ -1085,32 +1114,35 @@ for buchstabe in wort:
 ### Anwendung: Zeichen zählen
 
 ```python
+# Häufigkeit eines Zeichens zählen
 text = "Programmieren"
 anzahl_e = 0
 for zeichen in text:
-    if zeichen == "e":
-        anzahl_e += 1
+    if zeichen == "e":  # Prüfe jedes Zeichen
+        anzahl_e += 1  # Zähler erhöhen
 print(f"Anzahl 'e': {anzahl_e}")
 ```
 
 ### `break` und `continue` in `for`-Schleifen
 
 ```python
+# break und continue funktionieren auch in for-Schleifen
 for zahl in range(1, 11):
     if zahl % 3 == 0:
-        continue  # Überspringe Vielfache von 3
+        continue  # Vielfache von 3 überspringen
     if zahl > 7:
-        break     # Stoppe bei Zahlen > 7
-    print(zahl)
+        break  # Schleife bei Zahlen > 7 beenden
+    print(zahl)  # Gibt aus: 1, 2, 4, 5, 7
 ```
 
 ### Verschachtelte Schleifen: Multiplikationstabelle
 
 ```python
-for i in range(1, 4):
-    for j in range(1, 4):
+# Schleife in Schleife: Für jedes i alle j durchgehen
+for i in range(1, 4):  # Äußere Schleife: 1, 2, 3
+    for j in range(1, 4):  # Innere Schleife: 1, 2, 3
         print(f"{i} × {j} = {i*j}")
-    print("---")  # Trenner nach jeder Zeile
+    print("---")  # Trenner nach jeder Zeile der äußeren Schleife
 ```
 
 
@@ -1125,8 +1157,8 @@ Schreibe eine Funktion, die die Quersumme einer positiven Ganzzahl berechnet.
 
 ### Aufgabe: Batterie-Lade-Simulation
 
-- Batterie startet bei 3.0 V, Ziel: 4.2 V, Sicherheitslimit: 4.5 V  
-- Spannung steigt pro Zyklus um 0.1 V, max. 50 Zyklen  
+- Batterie startet bei 3.0 V, Ziel: 4.2 V, Sicherheitslimit: 4.5 V  
+- Spannung steigt pro Zyklus um 0.1 V, max. 50 Zyklen  
 
 **Aufgaben:**  
 1. Simuliere den Ladeprozess mit einer Schleife
